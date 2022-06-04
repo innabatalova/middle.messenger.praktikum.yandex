@@ -21,3 +21,4 @@ Mакет проекта
 https://www.figma.com/file/IjDLfdmtSqKHM8thrULqOx/Chat_external_link-(Copy)?node-id=0%3A1
 
 Проект на Netlify
+https://harmonious-cajeta-ec8291.netlify.app/
