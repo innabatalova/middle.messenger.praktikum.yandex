@@ -9,20 +9,18 @@
 </head>
 
 <main>
-  <div class="container">
-    <form class="auth-form">
+  <form class="auth-form">
 
-      <div class="input-wrapper">
-        <h1 class="auth-form__title">Вход</h1>
-        {{> input label="Логин" name="login" type="text"}}
-        {{> input label="Пароль" name="password" type="password"}}
-      </div>
+    <div class="input-wrapper">
+      <h1 class="auth-form__title">Вход</h1>
+      {{> input label="Логин" name="login" type="text"}}
+      {{> input label="Пароль" name="password" type="password"}}
+    </div>
 
-      <div class="button-wrapper">
-        {{> button name="Авторизоваться"}}
-        {{> link href="../registry/registry.hbs" name="Нет аккаунта?"}}
-      </div>
+    <div class="button-wrapper">
+      {{> button name="Авторизоваться"}}
+      {{> link href="../registry/registry.hbs" name="Нет аккаунта?"}}
+    </div>
 
-    </form>
-  </div>
+  </form>
 </main>

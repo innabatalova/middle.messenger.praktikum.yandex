@@ -9,25 +9,23 @@
 </head>
 
 <main>
-  <div class="container">
-    <form class="auth-form registry-form">
+  <form class="auth-form registry-form">
 
-      <div class="input-wrapper">
-        <h1 class="auth-form__title registry-form__title">Регистрация</h1>
-        {{> input label="Почта" name="email" type="email"}}
-        {{> input label="Логин" name="login" type="text"}}
-        {{> input label="Имя" name="first_name" type="text"}}
-        {{> input label="Фамилия" name="second_name" type="text"}}
-        {{> input label="Телефон" name="phone" type="tel"}}
-        {{> input label="Пароль" name="password" type="password"}}
-        {{> input label="Пароль (ещё раз)" name="repeat_password" type="password"}}
-      </div>
+    <div class="input-wrapper">
+      <h1 class="auth-form__title registry-form__title">Регистрация</h1>
+      {{> input label="Почта" name="email" type="email"}}
+      {{> input label="Логин" name="login" type="text"}}
+      {{> input label="Имя" name="first_name" type="text"}}
+      {{> input label="Фамилия" name="second_name" type="text"}}
+      {{> input label="Телефон" name="phone" type="tel"}}
+      {{> input label="Пароль" name="password" type="password"}}
+      {{> input label="Пароль (ещё раз)" name="repeat_password" type="password"}}
+    </div>
 
-      <div class="button-wrapper">
-        {{> button name="Зарегистрироваться"}}
-        {{> link href="../errors/error-404.hbs" name="Войти"}}
-      </div>
+    <div class="button-wrapper">
+      {{> button name="Зарегистрироваться"}}
+      {{> link href="../errors/error-404.hbs" name="Войти"}}
+    </div>
 
-    </form>
-  </div>
+  </form>
 </main>

@@ -1,0 +1,82 @@
+body
+  background-color: $whiteBg
+
+.container
+  position: relative
+  max-width: 1110px
+  margin: auto
+
+.account
+  display: flex
+  flex-direction: column
+  max-width: 510px
+  margin: auto
+  padding-top: 35px
+
+  &__avatar
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-bottom: 60px
+
+    &__img
+      width: 150px
+      height: 145px
+      margin-bottom: 30px
+
+    &__name
+      @include primary-font
+      font-weight: 600
+      font-size: 16px
+      line-height: 16px
+      color: $primaryBlue
+
+    &__hover
+      display: none
+      color: $primaryYellow
+
+  &__input
+    margin-bottom: 60px
+
+  &__check,  &__back
+    align-self: start
+    margin-bottom: 20px
+    font-size: 13px !important
+    line-height: 13px !important
+
+  &__back
+    color: $errorRed !important
+
+    &:focus,&:hover,&:active
+      color: #780202 !important
+
+.back
+  position: absolute
+  left: 0
+  top: 0
+  bottom: 0
+  display: flex
+  align-items: center
+  padding: 0 18px
+  background-color: $lightGrey
+
+  &__arrow
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background: url("../static/image/back-arrow.svg") no-repeat
+    background-color: $primaryYellow
+    background-position: 50%
+
+    &:focus,&:hover,&:active
+      background-color: $secondaryYellow
+
+@media screen and ( max-width: 768px )
+  .account
+    max-width: 80%
+    margin-right: 5%
+
+  .back
+    left: 0
+    padding-left: 0
+    padding-right: 8px

@@ -449,6 +449,107 @@ body {
   line-height: 20px;
 }
 
+body {
+  background-color: #FFFFFF;
+}
+
+.container {
+  position: relative;
+  max-width: 1110px;
+  margin: auto;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  max-width: 510px;
+  margin: auto;
+  padding-top: 35px;
+}
+
+.account__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.account__avatar__img {
+  width: 150px;
+  height: 145px;
+  margin-bottom: 30px;
+}
+
+.account__avatar__name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  color: #2400FF;
+}
+
+.account__avatar__hover {
+  display: none;
+  color: #FDE402;
+}
+
+.account__input {
+  margin-bottom: 60px;
+}
+
+.account__check, .account__back {
+  align-self: start;
+  margin-bottom: 20px;
+  font-size: 13px !important;
+  line-height: 13px !important;
+}
+
+.account__back {
+  color: #FF2F2F !important;
+}
+
+.account__back:focus, .account__back:hover, .account__back:active {
+  color: #780202 !important;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  background-color: #FBFBFB;
+}
+
+.back__arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: url("../static/image/back-arrow.svg") no-repeat;
+  background-color: #FDE402;
+  background-position: 50%;
+}
+
+.back__arrow:focus, .back__arrow:hover, .back__arrow:active {
+  background-color: #6E6402;
+}
+
+@media screen and (max-width: 768px) {
+  .account {
+    max-width: 80%;
+    margin-right: 5%;
+  }
+  .back {
+    left: 0;
+    padding-left: 0;
+    padding-right: 8px;
+  }
+}
+
 .main-btn {
   width: 100%;
   height: 40px;
@@ -466,7 +567,7 @@ body {
 }
 
 .main-btn:focus, .main-btn:hover, .main-btn:active {
-  background-color: #c5b101;
+  background-color: #6E6402;
 }
 
 .auth-form__input {
@@ -509,5 +610,26 @@ body {
 .auth-form__link:focus, .auth-form__link:hover, .auth-form__link:active {
   color: #00818a;
   outline: none;
+}
+
+.account__field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #EFEFEF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+}
+
+.account__field__data {
+  color: #2400FF;
+}
+
+.account__field__value {
+  color: #6E6402;
 }
 /*# sourceMappingURL=style.css.map */
