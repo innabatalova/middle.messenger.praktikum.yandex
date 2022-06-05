@@ -1,4 +1,6 @@
 /node_modules
 /.parcel-cache
-/.cache
 /dist
+/.cache
+/css/style.css.map
+/.env
