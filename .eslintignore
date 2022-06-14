@@ -1,0 +1,7 @@
+/dist
+/node_modules
+/.parcel-cache
+/.cache
+/css/style.css.map
+/.env
+/.gitignore
