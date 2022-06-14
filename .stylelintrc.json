@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "color-hex-case": "lower"
+  },
+  "ignoreFiles": [
+    "dist/*",
+    "node_modules",
+    ".parcel-cache",
+    ".cache",
+    ".gitignore",
+    ".env",
+    ".github",
+    "src/sass/style.sass",
+    "src/sass/_mixins.sass",
+    "src/sass/_variables.sass"
+  ]
+} 
