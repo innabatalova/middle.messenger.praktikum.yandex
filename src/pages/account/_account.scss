@@ -104,6 +104,10 @@ body {
     &:active {
       background-color: $secondaryYellow;
     }
+
+    &_footer{
+      transform: rotate(180deg);
+    }
   }
 }
 

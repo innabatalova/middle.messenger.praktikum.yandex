@@ -360,7 +360,7 @@ body {
   padding: 30px;
   padding-top: 50px;
   background: #ffffff;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 5px black;
   border-radius: 12px;
 }
 
@@ -376,7 +376,7 @@ body {
 }
 
 .auth-form:focus, .auth-form:hover, .auth-form:active {
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 12px black;
 }
 
 .button-wrapper {
@@ -552,6 +552,10 @@ body {
   background-color: #6e6402;
 }
 
+.back__arrow_footer {
+  transform: rotate(180deg);
+}
+
 @media screen and (max-width: 768px) {
   .account {
     max-width: 80%;
@@ -575,7 +579,7 @@ body {
   left: 0;
   right: 0;
   z-index: 15;
-  background-color: rgba(141, 141, 141, 0.4);
+  background-color: #8d8d8d;
 }
 
 .account__avatar__form {
@@ -672,35 +676,13 @@ body {
 }
 
 .chat-list__link::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -10px;
   top: 0;
-  background: url(../static/image/profile-arrow.svg) no-repeat;
+  background: url("../static/image/profile-arrow.svg") no-repeat;
   width: 6px;
   height: 10px;
-}
-
-.chat-list__label {
-  position: absolute;
-  top: 60px;
-  left: 45%;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 12px;
-  color: #02eefd;
-}
-
-.chat-list__label::before {
-  content: '';
-  position: absolute;
-  left: -20px;
-  bottom: -3px;
-  background: url(../static/image/search.svg) no-repeat;
-  width: 20px;
-  height: 20px;
 }
 
 .chat-list__search {
@@ -710,6 +692,27 @@ body {
   margin-bottom: 25px;
   background-color: #efefef;
   border: none;
+  padding: 10px 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: #2400ff;
+}
+
+.chat-list__search::placeholder {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: #02eefd;
+  position: relative;
+  left: 40%;
+  background: url("../static/image/search.svg") no-repeat;
+  background-position-x: 20%;
+  background-position-y: 50%;
 }
 
 .chat-list__search:focus, .chat-list__search:hover, .chat-list__search:active {
@@ -720,6 +723,7 @@ body {
 .chat-text {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 75%;
@@ -737,6 +741,8 @@ body {
 }
 
 .chat-text__header {
+  z-index: 15;
+  background-color: #ffffff;
   border-bottom: 1px solid #efefef;
   position: absolute;
   top: 0;
@@ -786,12 +792,20 @@ body {
 }
 
 .chat-text__ribbon {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  padding-top: 100px;
+  padding: 100px 0 50px;
+  overflow-y: scroll;
+}
+
+.chat-text__ribbon::-webkit-scrollbar {
+  opacity: 1;
 }
 
 .chat-text__ribbon__date {
+  align-self: center;
   margin-bottom: 30px;
   text-align: center;
   font-family: 'Inter';
@@ -802,13 +816,131 @@ body {
   color: #fde402;
 }
 
-.chat-text__ribbon__in {
+.chat-text__ribbon__desk {
+  position: relative;
+  padding: 11px;
+  padding-bottom: 25px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
   color: #2400ff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  width: max-content;
+  max-width: 45%;
+  min-width: 15%;
+}
+
+.chat-text__ribbon__desk_in {
+  align-self: flex-start;
+  background-color: #efefef;
+}
+
+.chat-text__ribbon__desk_in_time {
+  position: absolute;
+  right: 11;
+  bottom: 11;
+  color: #ffffff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 9px;
+}
+
+.chat-text__ribbon__desk_out {
+  align-self: flex-end;
+  background-color: #fde402;
+}
+
+.chat-text__ribbon__desk_out_time {
+  position: absolute;
+  right: 11;
+  bottom: 11;
+  color: #02eefd;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 9px;
+}
+
+.chat-text__ribbon__desk_out_time::before {
+  content: '';
+  background: url("../static/image/messege-icon.svg");
+  width: 10px;
+  height: 4px;
+  position: absolute;
+  left: -12px;
+  bottom: 25%;
+}
+
+@media screen and (max-width: 1200px) {
+  .chat-list {
+    width: 40%;
+  }
+  .chat-text {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chat-list {
+    width: 100%;
+  }
+  .chat-text {
+    display: none;
+  }
+}
+
+.chat-text__footer {
+  z-index: 15;
+  background-color: #ffffff;
+  border-top: 1px solid #efefef;
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+  left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.chat-text__footer_file_input {
+  display: none;
+}
+
+.chat-text__footer_message_input {
+  width: 100%;
+  height: 35px;
+  background-color: #efefef;
+  border: none;
+  border-radius: 30px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: #2400ff;
+}
+
+.chat-text__footer_message_input::placeholder {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: #fde402;
+}
+
+.chat-text__footer_message_input:focus, .chat-text__footer_message_input:hover, .chat-text__footer_message_input:active {
+  box-shadow: none;
+  outline: none;
 }
 
 .main-btn {
@@ -933,8 +1065,7 @@ body {
 }
 
 .contact__avatar {
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row: 1/3;
   width: 47px;
   height: 47px;
   border-radius: 50%;
@@ -942,8 +1073,7 @@ body {
 }
 
 .contact__name {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column: 2/3;
   padding-left: 10px;
   font-family: 'Inter';
   font-style: normal;
@@ -955,10 +1085,8 @@ body {
 }
 
 .contact__text {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column: 2/3;
+  grid-row: 2/3;
   padding-left: 10px;
   font-family: 'Inter';
   font-style: normal;
@@ -969,8 +1097,7 @@ body {
 }
 
 .contact__time {
-  grid-column-start: 3;
-  grid-column-end: 3;
+  grid-column: 3/3;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -997,6 +1124,18 @@ body {
 }
 
 .contact:focus, .contact:hover, .contact:active {
-  background-color: #E4EDFD;
+  background-color: #e4edfd;
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .contact {
+    height: 70px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
