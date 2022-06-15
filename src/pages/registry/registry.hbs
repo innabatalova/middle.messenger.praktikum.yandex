@@ -1,10 +1,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Регистрация</title>
-  <link rel="stylesheet" href="../../../css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="../../../.css/style.css">
 
 </head>
 
@@ -13,18 +10,18 @@
 
     <div class="input-wrapper">
       <h1 class="auth-form__title registry-form__title">Регистрация</h1>
-      {{> input label="Почта" name="email" type="email"}}
-      {{> input label="Логин" name="login" type="text"}}
-      {{> input label="Имя" name="first_name" type="text"}}
-      {{> input label="Фамилия" name="second_name" type="text"}}
-      {{> input label="Телефон" name="phone" type="tel"}}
-      {{> input label="Пароль" name="password" type="password"}}
-      {{> input label="Пароль (ещё раз)" name="repeat_password" type="password"}}
+      {{> input/input label="Почта" name="email" type="email"}}
+      {{> input/input label="Логин" name="login" type="text"}}
+      {{> input/input label="Имя" name="first_name" type="text"}}
+      {{> input/input label="Фамилия" name="second_name" type="text"}}
+      {{> input/input label="Телефон" name="phone" type="tel"}}
+      {{> input/input label="Пароль" name="password" type="password"}}
+      {{> input/input label="Пароль (ещё раз)" name="repeat_password" type="password"}}
     </div>
 
     <div class="button-wrapper">
-      {{> button name="Зарегистрироваться"}}
-      {{> link href="../errors/error-404.hbs" name="Войти"}}
+      {{> button/button name="Зарегистрироваться"}}
+      {{> link/link href="../errors/error-404.hbs" name="Войти"}}
     </div>
 
   </form>

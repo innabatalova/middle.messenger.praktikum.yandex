@@ -1,10 +1,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Настройка аккаунта</title>
-  <link rel="stylesheet" href="../../../css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="../../../.css/style.css">
 
 </head>
 
@@ -20,16 +17,16 @@
         <span class="account__avatar__change">Поменять аватар</span>
       </div>
       <div class="account__input">
-        {{> field name="email" data="Почта" value="pochta@yandex.ru"}}
-        {{> field name="login" data="Логин" value="ivanivanov"}}
-        {{> field name="first_name" data="Имя" value="Иван"}}
-        {{> field name="second_name" data="Фамилия" value="Иванов"}}
-        {{> field name="display_name" data="Имя в чате" value="Иван"}}
-        {{> field name="phone" data="Телефон" value="+7 (909) 967 30 30"}}
+        {{> field/field name="email" data="Почта" value="pochta@yandex.ru"}}
+        {{> field/field name="login" data="Логин" value="ivanivanov"}}
+        {{> field/field name="first_name" data="Имя" value="Иван"}}
+        {{> field/field name="second_name" data="Фамилия" value="Иванов"}}
+        {{> field/field name="display_name" data="Имя в чате" value="Иван"}}
+        {{> field/field name="phone" data="Телефон" value="+7 (909) 967 30 30"}}
       </div>
-      {{> link href="#" name="Изменить данные" class="account__check"}}
-      {{> link href="#" name="Изменить пароль" class="account__check"}}
-      {{> link href="#" name="Выйти" class="account__back"}}
+      {{> link/link href="#" name="Изменить данные" class="account__check"}}
+      {{> link/link href="#" name="Изменить пароль" class="account__check"}}
+      {{> link/link href="#" name="Выйти" class="account__back"}}
     </div>
   </div>
 </main>

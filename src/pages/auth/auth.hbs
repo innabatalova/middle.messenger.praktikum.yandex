@@ -1,10 +1,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Авторизация</title>
-  <link rel="stylesheet" href="../../../css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="../../../.css/style.css">
+
 
 </head>
 
@@ -13,13 +11,13 @@
 
     <div class="input-wrapper">
       <h1 class="auth-form__title">Вход</h1>
-      {{> input label="Логин" name="login" type="text"}}
-      {{> input label="Пароль" name="password" type="password"}}
+      {{> input/input label="Логин" name="login" type="text"}}
+      {{> input/input label="Пароль" name="password" type="password"}}
     </div>
 
     <div class="button-wrapper">
-      {{> button name="Авторизоваться"}}
-      {{> link href="../registry/registry.hbs" name="Нет аккаунта?"}}
+      {{> button/button name="Авторизоваться"}}
+      {{> link/link href="../registry/registry.hbs" name="Нет аккаунта?"}}
     </div>
 
   </form>

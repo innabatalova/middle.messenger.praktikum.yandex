@@ -2,5 +2,5 @@
 /.parcel-cache
 /dist
 /.cache
-/css/style.css.map
 /.env
+.css/style.css.map

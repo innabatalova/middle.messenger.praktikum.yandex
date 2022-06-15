@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+//Обнуление стилей браузеров
+@import '_normalize';
+//Подключение переменных
+@import '_variables';
+//Подключение миксинов
+@import '_mixins';
+
+//Подключение страниц
+@import '../pages/auth/_auth';
+@import '../pages/registry/_registry';
+@import '../pages/errors/_error';
+@import '../pages/account/_account';
+@import '../pages/account/_change';
+@import '../pages/chat/_chat';
+
+//Подключение компонентов
+@import '../partials/button/_button';
+@import '../partials/input/_input';
+@import '../partials/link/_link';
+@import '../partials/field/_field';
+@import '../partials/change/_change';
+@import '../partials/contact/_contact';

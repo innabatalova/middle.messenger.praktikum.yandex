@@ -1,10 +1,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Чаты</title>
-  <link rel="stylesheet" href="../../../css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="../../../.css/style.css">
 </head>
 
 <main>
@@ -14,14 +11,14 @@
         <label class="chat-list__label" for="search">Поиск</label>
           <input type="text" class="chat-list__search" id="search">
       <div class="chat-list__wrapper">
-        {{> contact name="Андрей" text="Изображение" time="10:49" counter="2"}}
-        {{> contact name="Киноклуб" text="Вы: стикер" time="12:00"}}
-        {{> contact name="Илья" text="Друзья, у меня для вас особенный выпуск новостей!..." time="15:12" counter="4"}}
-        {{> contact name="Вадим" text="Вы: Круто!" time="Пт"}}
-        {{> contact name="тет-а-теты" text="И Human Interface Guidelines и Material Design рекомендуют..." time="Ср"}}
-        {{> contact name="1, 2, 3" text="Миллионы россиян ежедневно проводят десятки часов свое..." time="Пн"}}
-        {{> contact name="Design Destroyer" text="Так увлёкся работой по курсу, что совсем забыл его анонсир..." time="Ср"}}
-        {{> contact name="Day." text="В 2008 году художник Jon Rafman  начал собирать..." time="Пн"}}
+        {{> contact/contact name="Андрей" text="Изображение" time="10:49" counter="2"}}
+        {{> contact/contact name="Киноклуб" text="Вы: стикер" time="12:00"}}
+        {{> contact/contact name="Илья" text="Друзья, у меня для вас особенный выпуск новостей!..." time="15:12" counter="4"}}
+        {{> contact/contact name="Вадим" text="Вы: Круто!" time="Пт"}}
+        {{> contact/contact name="тет-а-теты" text="И Human Interface Guidelines и Material Design рекомендуют..." time="Ср"}}
+        {{> contact/contact name="1, 2, 3" text="Миллионы россиян ежедневно проводят десятки часов свое..." time="Пн"}}
+        {{> contact/contact name="Design Destroyer" text="Так увлёкся работой по курсу, что совсем забыл его анонсир..." time="Ср"}}
+        {{> contact/contact name="Day." text="В 2008 году художник Jon Rafman  начал собирать..." time="Пн"}}
       </div>
     </div>
     <div class="chat-text">
