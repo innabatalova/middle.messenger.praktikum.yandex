@@ -2,24 +2,24 @@ import EventBus from './EventBus'
 import {v4 as makeUUID} from 'uuid';
 
 abstract class Block {
-  private EVENTS: Record <string, string> = {
+    private EVENTS: Record <string, string> = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
     FLOW_CDU: 'flow:component-did-update',
     FLOW_CWU: 'flow:component-will-unmount',
     FLOW_RENDER: "flow:render"
-  };
+    };
 
-  private _element: HTMLElement;
-  private _tagName: string;
+    private _element: HTMLElement;
+    private _tagName: string;
 
-  protected eventBus: EventBus;
-  protected id: string;
-  protected props: Record<string, any>;
-  protected children: Record<string, Block>;
+    protected eventBus: EventBus;
+    protected id: string;
+    protected props: Record<string, any>;
+    protected children: Record<string, Block>;
 
 
-  public constructor(tagName: string = "div", propsAndChildren: Record<string, any> = {}) {
+    public constructor(tagName: string = "div", propsAndChildren: Record<string, any> = {}) {
 
     this.id = makeUUID();
     this._tagName = tagName;
@@ -33,7 +33,7 @@ abstract class Block {
     this.registerEvent();
 
     this.eventBus.emit(this.EVENTS.INIT);
-  }
+    }
 
   public setProps(newProps: Record<string, any>): void {
         if (!newProps) return;
