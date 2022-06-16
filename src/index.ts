@@ -1,15 +1,9 @@
-import EventBus from './utils/EventBus'
-import {v4 as makeUUID} from 'uuid';
+import './sass/style.scss'
 
-const eventBus = new EventBus();
+import renderDOM from './utils/renderDOM'
 
-const callback = (...args) => {
-    console.log('Event emitted', args);
-}
+import Button from './components/button/Button'
 
-eventBus.on('myEvent', callback);
-eventBus.emit('myEvent', 'some', 'data', 'to', 'process');
+renderDOM('#root', new Button());
 
-//Event emitted, ['some', 'data', 'to', 'process'] 
-const uuid = makeUUID();
-console.log(uuid);
+console.log("test");
