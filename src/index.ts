@@ -1,10 +1,14 @@
 import EventBus from './utils/EventBus'
 
-const test = new EventBus;
+const eventBus = new EventBus();
 
-function callback(){
-  console.log("test");
-  
+const callback = (...args) => {
+    console.log('Event emitted', args);
 }
 
-console.log(test.on("eventer", callback));
+eventBus.on('myEvent', callback);
+eventBus.emit('myEvent', 'some', 'data', 'to', 'process');
+
+//Event emitted, ['some', 'data', 'to', 'process'] 
+
+console.log(eventBus.emit('myEvent', 'some', 'data', 'to', 'process'));
