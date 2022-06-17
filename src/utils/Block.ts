@@ -142,7 +142,11 @@ abstract class Block {
     }
 
   private createResources(): void {
+<<<<<<< HEAD
         this.element = this.createDocumentElement(this.tagName);
+=======
+        this.element = this.createDocumentElement(this._tagName);
+>>>>>>> 61e70ae0652665d130f54a20236c776bc0ad3e7f
     }
 
   private createDocumentElement(tagName: string): HTMLElement {
@@ -197,22 +201,22 @@ abstract class Block {
                         propsAndStubs[key] = [];
                     }
 
-                  propsAndStubs[key].push(
-                      {
-                          [innerChildKey]: `<div data-id="${child.id}"></div>`
-                      }
-                  )
-              })
-          })
-      } else {
-              propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
+                propsAndStubs[key].push(
+                    {
+                        [innerChildKey]: `<div data-id="${child.id}"></div>`
+                    }
+)
+            })
+        })
+    } else {
+            propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
             }
         });
 
         const fragment = this.createDocumentElement('template') as HTMLTemplateElement;
         fragment.innerHTML = template(propsAndStubs);
 
-  Object.values(this.children).forEach(child => {
+Object.values(this.children).forEach(child => {
       if (Array.isArray(child)) {
           // If the array of properties
           child.forEach((innerChild: Record<string, Block>) => {
