@@ -39,11 +39,10 @@
         position: absolute;
         right: -10px;
         top: 0;
-        background: url("../static/image/profile-arrow.svg") no-repeat;
+        background: url("../../static/image/profile-arrow.svg") no-repeat;
         width: 6px;
         height: 10px;
       }
-      
     }
 
     &__search {
@@ -59,14 +58,14 @@
       line-height: 12px;
       color: $primaryBlue;
 
-      &::placeholder{
+      &::placeholder {
         @include primary-font;
         font-size: 12px;
         line-height: 12px;
         color: $primaryTurq;
         position: relative;
         left: 40%;
-        background: url("../static/image/search.svg") no-repeat;
+        background: url("../../static/image/search.svg") no-repeat;
         background-position-x: 20%;
         background-position-y: 50%;
       }
@@ -157,7 +156,7 @@
       padding: 100px 0 50px;
       overflow-y: scroll;
 
-      &::-webkit-scrollbar{
+      &::-webkit-scrollbar {
         opacity: 1;
       }
 
@@ -177,7 +176,7 @@
         position: relative;
         padding: 11px;
         padding-bottom: 25px;
-        
+
         @include primary-font;
 
         font-size: 12px;
@@ -189,57 +188,52 @@
         max-width: 45%;
         min-width: 15%;
 
-              &_in {
-                  align-self: flex-start;
-                  background-color: $darkGrey;
+        &_in {
+          align-self: flex-start;
+          background-color: $darkGrey;
 
-                                &_time {
-                                    position: absolute;
-                                    right: 11;
-                                    bottom: 11;
-                                    color: $whiteBg;
-                                    @include primary-font;
-                                    font-size: 9px;
-                                    line-height: 9px;
-                                  }
-                }
-              
-                &_out {
-                  align-self: flex-end;
-                  background-color: $primaryYellow;
+          &_time {
+            position: absolute;
+            right: 11;
+            bottom: 11;
+            color: $whiteBg;
+            @include primary-font;
+            font-size: 9px;
+            line-height: 9px;
+          }
+        }
 
-                                &_time {
-                                    position: absolute;
-                                    right: 11;
-                                    bottom: 11;
-                                    color: $primaryTurq;
-                                    @include primary-font;
-                                    font-size: 9px;
-                                    line-height: 9px;
+        &_out {
+          align-self: flex-end;
+          background-color: $primaryYellow;
 
-                                    &::before{
-                                      content: '';
-                                      background: url("../static/image/messege-icon.svg");
-                                      width: 10px;
-                                      height: 4px;
-                                      position: absolute;
-                                      left: -12px;
-                                      bottom: 25%;
-                                    }
-                                  }
-                }
+          &_time {
+            position: absolute;
+            right: 11;
+            bottom: 11;
+            color: $primaryTurq;
+            @include primary-font;
+            font-size: 9px;
+            line-height: 9px;
 
-              
+            &::before {
+              content: "";
+              background: url("../../static/image/messege-icon.svg");
+              width: 10px;
+              height: 4px;
+              position: absolute;
+              left: -12px;
+              bottom: 25%;
+            }
+          }
+        }
       }
-
     }
   }
 }
 
-
-@media screen and (max-width: 1200px){
-  .chat{
-
+@media screen and (max-width: 1200px) {
+  .chat {
     &-list {
       width: 40%;
     }
@@ -252,7 +246,6 @@
 
 @media screen and (max-width: 768px) {
   .chat {
-
     &-list {
       width: 100%;
     }

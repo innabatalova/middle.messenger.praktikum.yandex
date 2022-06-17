@@ -95,7 +95,7 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: url("../static/image/back-arrow.svg") no-repeat;
+    background: url("../../static/image/back-arrow.svg") no-repeat;
     background-color: $primaryYellow;
     background-position: 50%;
 
@@ -105,7 +105,7 @@ body {
       background-color: $secondaryYellow;
     }
 
-    &_footer{
+    &_footer {
       transform: rotate(180deg);
     }
   }

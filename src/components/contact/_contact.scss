@@ -1,3 +1,6 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_variables.scss";
+
 .contact {
   display: grid;
   grid-template-columns: 48px 1fr 25px;
@@ -77,8 +80,8 @@
   }
 }
 
-@media screen and (max-width: 768px){
-  .contact{
+@media screen and (max-width: 768px) {
+  .contact {
     height: 100px;
   }
 }
