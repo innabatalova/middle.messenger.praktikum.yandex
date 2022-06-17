@@ -16,7 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
-    "@parcel/transformer-sass": "2.3.1",
+    "@parcel/transformer-sass": "^2.6.0",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
     "eslint": "8.17.0",
@@ -30,10 +30,13 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
     "csscomb": "4.3.0",
     "dotenv": "16.0.1",
     "express": "4.18.1",
+    "handlebars": "^4.7.7",
     "hbs": "4.2.0",
+    "node": "^17.7.2",
     "uuid": "^8.3.2"
   },
   "engines": {

@@ -10,8 +10,8 @@ abstract class Block {
     FLOW_RENDER: "flow:render"
     };
 
-    private _element: HTMLElement;
-    private _tagName: string;
+    private element: HTMLElement;
+    private tagName: string;
 
     protected eventBus: EventBus;
     protected id: string;
@@ -22,7 +22,7 @@ abstract class Block {
     public constructor(tagName: string = "div", propsAndChildren: Record<string, any> = {}) {
 
     this.id = makeUUID();
-    this._tagName = tagName;
+    this.tagName = tagName;
 
     const { children, props } = this.getChildren(propsAndChildren);
     this.children = children;
@@ -41,7 +41,7 @@ abstract class Block {
     }
 
   public getElement(): HTMLElement {
-        return this._element;
+        return this.element;
     }
 
   public deleteElement(): void {
@@ -89,7 +89,7 @@ abstract class Block {
   private unmountComponent(): void {
         this.componentWillUnmount();
         this.removeEvents();
-        this._element.remove();
+        this.element.remove();
     }
 
   private renderComponent(): void {
@@ -97,7 +97,7 @@ abstract class Block {
         const element = fragment.firstElementChild as HTMLElement;
 
         this.element.replaceWith(element);
-        this._element = element;
+        this.element = element;
 
         this.addEvents();
     }
@@ -142,7 +142,7 @@ abstract class Block {
     }
 
   private createResources(): void {
-        this._element = this.createDocumentElement(this._tagName);
+        this.element = this.createDocumentElement(this.tagName);
     }
 
   private createDocumentElement(tagName: string): HTMLElement {
@@ -154,7 +154,7 @@ abstract class Block {
 
         if (events) {
             Object.keys(events).forEach((eventName) => {
-                this._element.addEventListener(eventName, events[eventName]);
+                this.element.addEventListener(eventName, events[eventName]);
             })
         }
     }
@@ -164,7 +164,7 @@ abstract class Block {
 
         if (events) {
             Object.keys(events).forEach((eventName) => {
-                this._element.addEventListener(eventName, events[eventName]);
+                this.element.addEventListener(eventName, events[eventName]);
             })
         }
     }

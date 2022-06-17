@@ -1,15 +1,7 @@
-import EventBus from './utils/EventBus'
-import {v4 as makeUUID} from 'uuid';
+import EventBus from "./utils/EventBus";
 
-const eventBus = new EventBus();
+import renderDOM from "./utils/renderDOM";
 
-const callback = (...args) => {
-    console.log('Event emitted', args);
-}
+import Button from "./partials/button/button";
 
-eventBus.on('myEvent', callback);
-eventBus.emit('myEvent', 'some', 'data', 'to', 'process');
-
-//Event emitted, ['some', 'data', 'to', 'process'] 
-const uuid = makeUUID();
-console.log(uuid);
+renderDOM("#root", new Button());
