@@ -20,5 +20,7 @@
   &:hover,
   &:active {
     background-color: $secondaryYellow;
+    border: none;
+    outline: none;
   }
 }

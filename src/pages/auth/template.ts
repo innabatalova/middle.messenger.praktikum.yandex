@@ -6,7 +6,9 @@ const template = Handlebars.compile(
 
     <div class="input-wrapper">
       <h1 class="auth-form__title">Вход</h1>
+      <label class="auth-form__input_label">Логин</label>
       {{{ inputLogin }}}
+      <label class="auth-form__input_label">Пароль</label>
       {{{ inputPass }}}
     </div>
 

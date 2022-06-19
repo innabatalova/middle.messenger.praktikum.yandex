@@ -1,6 +1,6 @@
 import renderDOM from "./utils/renderDOM";
 
-//import Button from "./components/button/button";
+import Input from "./components/input/input";
 import Auth from "./pages/auth/auth";
 import Account from "./pages/account/account";
 

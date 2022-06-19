@@ -31,3 +31,17 @@
     }
   }
 }
+
+.input {
+  &__error {
+    &_label {
+      @include primary-font;
+      color: $errorRed;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 8px;
+      position: relative;
+      top: -25px;
+    }
+  }
+}

@@ -1,3 +1,3 @@
 declare module "handlebars";
-declare module "uuid";
+declare module "nanoid";
 declare module "*.svg";

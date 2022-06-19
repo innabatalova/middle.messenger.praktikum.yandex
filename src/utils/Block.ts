@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import { v4 as makeUUID } from "uuid";
+import { nanoid } from "nanoid";
 import EventBus from "./EventBus";
 
 abstract class Block {
@@ -23,7 +23,7 @@ abstract class Block {
     propsAndChildren: Record<string, any> = {}
   ) {
     this.tagName = tagName;
-    this.id = makeUUID();
+    this.id = nanoid();
 
     const { children, props } = this.getChildren(propsAndChildren);
     this.children = children;

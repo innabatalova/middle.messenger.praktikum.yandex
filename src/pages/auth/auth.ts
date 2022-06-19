@@ -1,4 +1,5 @@
 import Block from "../../utils/Block";
+import { inputFocus, inputBlur, formSubmit } from "../../utils/events";
 
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -13,14 +14,25 @@ class Auth extends Block {
       label: "Логин",
       name: "login",
       type: "text",
+      events: {
+        focus: inputFocus,
+        blur: inputBlur,
+      },
     });
     const inputPass = new Input({
       label: "Пароль",
       name: "password",
       type: "password",
+      events: {
+        focus: inputFocus,
+        blur: inputBlur,
+      },
     });
     const buttonAuth = new Button({
       name: "Авторизоваться",
+      events: {
+        click: formSubmit,
+      },
     });
     const linkToReg = new Link({
       href: "#",
