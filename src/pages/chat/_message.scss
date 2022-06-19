@@ -1,58 +1,56 @@
-.chat{
-
+.chat {
   &-text {
-  
-      &__footer {
-        z-index: 15;
-        background-color: $whiteBg;
-        border-top: 1px solid $darkGrey;
-        position: absolute;
-        bottom: 0;
-        right: 2%;
-        left: 2%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 0;
+    &__footer {
+      z-index: 15;
+      background-color: $whiteBg;
+      border-top: 1px solid $darkGrey;
+      position: absolute;
+      bottom: 0;
+      right: 2%;
+      left: 2%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
 
-        &_file{
-
-          &_input{
-            display: none;
-          }
+      &_file {
+        &_input {
+          display: none;
         }
+      }
 
-        &_message{
+      &_message {
+        &_input {
+          width: 100%;
+          height: 35px;
+          background-color: $darkGrey;
+          border: none;
+          border-radius: 30px;
+          margin: 0 10px;
+          padding: 10px 20px;
 
-          &_input{
-            width: 100%;
-            height: 35px;
-            background-color: $darkGrey;
-            border: none;
-            border-radius: 30px;
-            margin: 0 10px;
-            padding: 10px 20px;
+          @include primary-font;
+
+          font-size: 12px;
+          line-height: 12px;
+          color: $primaryBlue;
+
+          &::placeholder {
             @include primary-font;
+
             font-size: 12px;
             line-height: 12px;
-            color: $primaryBlue;
+            color: $primaryYellow;
+          }
 
-              &::placeholder{
-                  @include primary-font;
-                  font-size: 12px;
-                  line-height: 12px;
-                  color: $primaryYellow;
-              }
-
-              &:focus,
-                &:hover,
-                &:active {
-                  box-shadow: none;
-                  outline: none;
-                }
-
+          &:focus,
+          &:hover,
+          &:active {
+            box-shadow: none;
+            outline: none;
           }
         }
       }
     }
+  }
 }

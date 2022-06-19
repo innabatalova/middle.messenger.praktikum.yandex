@@ -1,14 +1,12 @@
 {
-    "extends": ["stylelint-config-standard","stylelint-config-standard-scss"],
-    "plugins": [
-        "stylelint-scss"
-    ],
-    "rules": {
-        "color-hex-case": "lower",
-        "at-rule-no-unknown": null,
-        "scss/at-rule-no-unknown": true
-    },
-    "ignoreFiles": [
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "color-hex-case": "lower",
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true
+  },
+  "ignoreFiles": [
     "dist/*",
     "node_modules",
     ".parcel-cache",
@@ -20,5 +18,5 @@
     "src/sass/_normalize.scss",
     "src/sass/_mixins.scss",
     "src/sass/_variables.scss"
-    ]
+  ]
 }

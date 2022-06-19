@@ -4,7 +4,7 @@
   "description": "https://www.figma.com/file/IjDLfdmtSqKHM8thrULqOx/Chat_external_link-(Copy)?node-id=0%3A1",
   "scripts": {
     "dev": "parcel static/index.html -p 3000 --open",
-    "build": "parcel build static/index.html -p 3000",
+    "build": "parcel build static/index.html",
     "start": "node ./server.js"
   },
   "repository": {

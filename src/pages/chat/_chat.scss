@@ -53,13 +53,16 @@
       background-color: $darkGrey;
       border: none;
       padding: 10px 20px;
+
       @include primary-font;
+
       font-size: 12px;
       line-height: 12px;
       color: $primaryBlue;
 
       &::placeholder {
         @include primary-font;
+
         font-size: 12px;
         line-height: 12px;
         color: $primaryTurq;
@@ -201,7 +204,9 @@
             right: 11;
             bottom: 11;
             color: $whiteBg;
+
             @include primary-font;
+
             font-size: 9px;
             line-height: 9px;
           }
@@ -216,7 +221,9 @@
             right: 11;
             bottom: 11;
             color: $primaryTurq;
+
             @include primary-font;
+
             font-size: 9px;
             line-height: 9px;
 
