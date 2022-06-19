@@ -33,7 +33,7 @@ class Auth extends Block {
       },
     });
     const linkToReg = new Link({
-      href: "#",
+      href: "/registry",
       name: "Нет аккаунта?",
     });
 

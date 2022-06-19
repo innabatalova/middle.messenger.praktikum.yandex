@@ -73,7 +73,7 @@ class Registry extends Block {
       },
     });
     const linkOpen = new Link({
-      href: "#",
+      href: "/chat",
       name: "Войти",
     });
 

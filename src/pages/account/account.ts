@@ -52,7 +52,7 @@ class Account extends Block {
       class: "account__check",
     });
     const linkOut = new Link({
-      href: "#",
+      href: "/chat",
       name: "Выйти",
       class: "account__back",
     });
