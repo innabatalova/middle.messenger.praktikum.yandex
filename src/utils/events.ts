@@ -27,7 +27,11 @@ const formSubmit = (event: Event): void => {
   });
 
   if (validationError === 0) {
-    console.log("Данные формы", data);
+    if (!(data.password === data.repeat_password)) {
+      console.log("Пароли не совпадают");
+    } else {
+      console.log("Данные формы", data);
+    }
   } else {
     console.log("Некорректные данные");
   }

@@ -32,6 +32,11 @@ class Validation {
       error: "Неверный пароль",
       success: "Надежный пароль",
     },
+    repeat_password: {
+      pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
+      error: "Неверный пароль",
+      success: "Пароли совпали",
+    },
     phone: {
       pattern: /^[+-d]?\d{10,15}$/,
       error: "Попробуйте другой номер телефона",

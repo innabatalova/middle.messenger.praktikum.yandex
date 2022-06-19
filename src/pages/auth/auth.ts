@@ -11,7 +11,6 @@ import template from "./template";
 class Auth extends Block {
   constructor(props: Record<string, any> = {}) {
     const inputLogin = new Input({
-      label: "Логин",
       name: "login",
       type: "text",
       events: {
@@ -20,7 +19,6 @@ class Auth extends Block {
       },
     });
     const inputPass = new Input({
-      label: "Пароль",
       name: "password",
       type: "password",
       events: {
