@@ -1,5 +1,6 @@
-import EventBus from "./EventBus";
+import Handlebars from "handlebars";
 import { v4 as makeUUID } from "uuid";
+import EventBus from "./EventBus";
 
 abstract class Block {
   private EVENTS: Record<string, string> = {
@@ -9,35 +10,33 @@ abstract class Block {
     FLOW_CWU: "flow:component-will-unmount",
     FLOW_RENDER: "flow:render",
   };
-
   private element: HTMLElement;
   private tagName: string;
 
   protected eventBus: EventBus;
-  protected id: string;
   protected props: Record<string, any>;
   protected children: Record<string, Block>;
+  protected id: string;
 
   public constructor(
     tagName: string = "div",
     propsAndChildren: Record<string, any> = {}
   ) {
-    this.id = makeUUID();
     this.tagName = tagName;
+    this.id = makeUUID();
 
     const { children, props } = this.getChildren(propsAndChildren);
     this.children = children;
-
     this.props = this.makePropsProxy({ ...props, id: this.id });
 
     this.eventBus = new EventBus();
     this.registerEvent();
-
     this.eventBus.emit(this.EVENTS.INIT);
   }
 
   public setProps(newProps: Record<string, any>): void {
     if (!newProps) return;
+
     Object.assign(this.props, newProps);
   }
 
@@ -93,6 +92,7 @@ abstract class Block {
   private unmountComponent(): void {
     this.componentWillUnmount();
     this.removeEvents();
+
     this.element.remove();
   }
 
@@ -220,6 +220,7 @@ abstract class Block {
     ) as HTMLTemplateElement;
     fragment.innerHTML = template(propsAndStubs);
 
+    // Replace the stubs with a Block
     Object.values(this.children).forEach((child) => {
       if (Array.isArray(child)) {
         // If the array of properties

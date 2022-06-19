@@ -1,6 +1,6 @@
 import template from "./template";
 import Block from "../../utils/Block";
-import "./change.scss";
+import "./_change.scss";
 
 class Change extends Block {
   constructor(props: Record<string, any> = {}) {

@@ -1,6 +1,7 @@
-import template from "./template";
 import Block from "../../utils/Block";
+
 import "./_button.scss";
+import template from "./template";
 
 class Button extends Block {
   constructor(props: Record<string, any> = {}) {
