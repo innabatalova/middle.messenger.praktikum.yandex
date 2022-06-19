@@ -8,7 +8,7 @@ import Link from "../../components/link/link";
 import "../../sass/style.scss";
 import template from "./template";
 
-class Auth extends Block {
+class Registry extends Block {
   constructor(props: Record<string, any> = {}) {
     const inputEmail = new Input({
       name: "email",
@@ -95,4 +95,4 @@ class Auth extends Block {
   }
 }
 
-export default Auth;
+export default Registry;

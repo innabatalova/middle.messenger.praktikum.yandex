@@ -192,6 +192,10 @@
           align-self: flex-start;
           background-color: $darkGrey;
 
+          img {
+            max-width: 260px;
+          }
+
           &_time {
             position: absolute;
             right: 11;

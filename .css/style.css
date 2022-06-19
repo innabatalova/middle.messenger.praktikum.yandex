@@ -553,7 +553,7 @@ body {
 }
 
 .back__arrow_footer {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 @media screen and (max-width: 768px) {
@@ -836,6 +836,10 @@ body {
 .chat-text__ribbon__desk_in {
   align-self: flex-start;
   background-color: #efefef;
+}
+
+.chat-text__ribbon__desk_in img {
+  max-width: 260px;
 }
 
 .chat-text__ribbon__desk_in_time {
