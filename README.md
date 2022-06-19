@@ -21,6 +21,12 @@ $ npm run start
 
 Проект запускается на порту localhost:3000
 
+### Добавлено
+
+Typescript ESLint, Stylelint
+Валидация форм и отправка данные в консоль
+Проект декомпозирован, настроены импорты и экпорты
+
 Mакет проекта
 https://www.figma.com/file/IjDLfdmtSqKHM8thrULqOx/Chat_external_link-(Copy)?node-id=0%3A1
 
