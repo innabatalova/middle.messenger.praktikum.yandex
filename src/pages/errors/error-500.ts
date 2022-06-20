@@ -10,7 +10,7 @@ class Error500 extends Block {
     const number = "500";
     const info = "Уже фиксим";
     const linkError = new Link({
-      href: "#",
+      href: "/chat",
       name: "Назад к чатам",
     });
 

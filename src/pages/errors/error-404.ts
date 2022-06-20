@@ -10,7 +10,7 @@ class Error404 extends Block {
     const number = "404";
     const info = "Не туда попали";
     const linkError = new Link({
-      href: "#",
+      href: "/chat",
       name: "Назад к чатам",
     });
 
