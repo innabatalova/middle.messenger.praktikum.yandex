@@ -42,6 +42,7 @@ class Auth extends Block {
       inputPass,
       buttonAuth,
       linkToReg,
+      ...props,
     });
   }
 

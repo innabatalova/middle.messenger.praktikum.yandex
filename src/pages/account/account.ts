@@ -68,6 +68,7 @@ class Account extends Block {
       linkChangeData,
       linkChangePass,
       linkOut,
+      ...props,
     });
   }
 

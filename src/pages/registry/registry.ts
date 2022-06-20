@@ -87,6 +87,7 @@ class Registry extends Block {
       inputPassRepeat,
       buttonRegistry,
       linkOpen,
+      ...props,
     });
   }
 

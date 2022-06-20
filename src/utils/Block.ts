@@ -1,4 +1,3 @@
-import Handlebars from "handlebars";
 import { nanoid } from "nanoid";
 import EventBus from "./EventBus";
 
@@ -225,7 +224,7 @@ abstract class Block {
       if (Array.isArray(child)) {
         // If the array of properties
         child.forEach((innerChild: Record<string, Block>) => {
-          Object.entries(innerChild).forEach(([innerChildKey, child]) => {
+          Object.entries(innerChild).forEach(([[], child]) => {
             const stub = fragment.content.querySelector(
               `[data-id="${child.id}"]`
             );

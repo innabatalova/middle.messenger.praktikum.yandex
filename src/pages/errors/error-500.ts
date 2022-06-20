@@ -18,6 +18,7 @@ class Error500 extends Block {
       linkError,
       number,
       info,
+      ...props,
     });
   }
 

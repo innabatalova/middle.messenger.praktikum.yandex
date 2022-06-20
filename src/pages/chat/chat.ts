@@ -73,6 +73,7 @@ class Chat extends Block {
     super("div", {
       contactList,
       photoContant,
+      ...props,
     });
   }
 

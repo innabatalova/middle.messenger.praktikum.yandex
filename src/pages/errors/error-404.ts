@@ -18,6 +18,7 @@ class Error404 extends Block {
       linkError,
       number,
       info,
+      ...props,
     });
   }
 
