@@ -27,10 +27,14 @@ const formSubmit = (event: Event): void => {
   });
 
   if (validationError === 0) {
-    if (!(data.password === data.repeat_password)) {
-      console.log("Пароли не совпадают");
+    if (document.querySelector('[name="repeat_password"]')) {
+      if (!(data.password === data.repeat_password)) {
+        console.log("Пароли не совпадают");
+      } else {
+        console.log("Данные формы", data);
+      }
     } else {
-      console.log("Данные формы", data);
+      console.log("Некорректные данные");
     }
   } else {
     console.log("Некорректные данные");
