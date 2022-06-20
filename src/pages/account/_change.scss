@@ -1,0 +1,77 @@
+.account {
+  &__button {
+    align-self: center;
+  }
+
+  &__avatar {
+    &__download {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 15;
+      background-color: rgb(141 141 141 / 40%);
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 260px;
+      padding: 30px 40px;
+      background-color: $whiteBg;
+      border-radius: 12px;
+    }
+
+    &__title {
+      align-self: center;
+
+      @include primary-font;
+
+      font-size: 15px;
+      line-height: 20px;
+      color: $primaryBlue;
+    }
+
+    &__label {
+      align-self: center;
+      text-align: center;
+      width: 120px;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 16px;
+      color: $primaryTurq;
+      text-decoration: underline;
+    }
+
+    &__input {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+    }
+  }
+}
+
+.change {
+  &__field {
+    &__input {
+      text-align: right;
+
+      @include primary-font;
+
+      font-size: 13px;
+      line-height: 13px;
+      color: $secondaryYellow;
+      border: none;
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_variables.scss";
+
+.change {
+  &__field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid $darkGrey;
+
+    @include primary-font;
+
+    font-size: 13px;
+    line-height: 13px;
+
+    &__data {
+      color: $primaryBlue;
+    }
+
+    &__value {
+      color: $secondaryYellow;
+    }
+  }
+}

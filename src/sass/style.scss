@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+//Обнуление стилей браузеров
+@import '_normalize';
+//Подключение переменных
+@import '_variables';
+//Подключение миксинов
+@import '_mixins';
+
+//Подключение страниц
+@import '../pages/auth/_auth';
+@import '../pages/registry/_registry';
+@import '../pages/errors/_error';
+@import '../pages/account/_account';
+@import '../pages/account/_change';
+@import '../pages/chat/_chat';
+@import '../pages/chat/_message';
+
+//Подключение компонентов
+@import '../components/button/_button';
+@import '../components/input/_input';
+@import '../components/link/_link';
+@import '../components/field/_field';
+@import '../components/change/_change';
+@import '../components/contact/_contact';
