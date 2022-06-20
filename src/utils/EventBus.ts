@@ -1,6 +1,5 @@
 class EventBus {
-
-  private listeners: object = {};
+  private listeners: Record<string, Function[]> = {};
 
   public on(event: string, callback: Function) {
     if (!this.listeners[event]) {
@@ -11,21 +10,21 @@ class EventBus {
   }
 
   public off(event: string, callback: Function) {
-		if (!this.listeners[event]) {
+    if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
 
     this.listeners[event] = this.listeners[event].filter(
-      listener => listener !== callback
+      (listener) => listener !== callback
     );
   }
 
-	public emit(event: string, ...args: string[]) {
+  public emit(event: string, ...args: string[]) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
-    
-    this.listeners[event].forEach(function(listener) {
+
+    this.listeners[event].forEach(function (listener) {
       listener(...args);
     });
   }

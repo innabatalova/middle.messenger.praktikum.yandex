@@ -1,17 +1,10 @@
 {
   "extends": "airbnb",
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "max-len": [
-      2,
-      100
-    ],
-    "max-params": [
-      2,
-      3
-    ]
+    "max-len": [2, 100],
+    "max-params": [2, 3],
+    "tabWidth": 2
   }
 }
