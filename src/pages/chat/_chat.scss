@@ -1,0 +1,268 @@
+.chat {
+  display: flex;
+  position: relative;
+  width: 90%;
+  height: 100%;
+  max-width: 1280px;
+  margin: auto;
+  background-color: $lightGrey;
+  overflow: hidden;
+
+  &-list {
+    width: 25%;
+    position: relative;
+    padding: 0 10px;
+    padding-top: 20px;
+
+    &__link {
+      position: relative;
+      display: inline-block;
+      left: 75%;
+      margin-bottom: 15px;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 12px;
+      color: $primaryTurq;
+      text-decoration: none;
+
+      &:focus,
+      &:hover,
+      &:active {
+        color: $secondaryTurq;
+        outline: none;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -10px;
+        top: 0;
+        background: url("../../static/image/profile-arrow.svg") no-repeat;
+        width: 6px;
+        height: 10px;
+      }
+    }
+
+    &__search {
+      width: 100%;
+      height: 35px;
+      border-radius: 5px;
+      margin-bottom: 25px;
+      background-color: $darkGrey;
+      border: none;
+      padding: 10px 20px;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 12px;
+      color: $primaryBlue;
+
+      &::placeholder {
+        @include primary-font;
+
+        font-size: 12px;
+        line-height: 12px;
+        color: $primaryTurq;
+        position: relative;
+        left: 40%;
+        background: url("../../static/image/search.svg") no-repeat;
+        background-position-x: 20%;
+        background-position-y: 50%;
+      }
+
+      &:focus,
+      &:hover,
+      &:active {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    padding: 0 1.5%;
+    background-color: $whiteBg;
+
+    &__default {
+      color: $primaryYellow;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    &__header {
+      z-index: 15;
+      background-color: $whiteBg;
+      border-bottom: 1px solid $darkGrey;
+      position: absolute;
+      top: 0;
+      right: 2%;
+      left: 2%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+
+      &_wrap {
+        display: flex;
+        align-items: center;
+      }
+
+      &__avatar {
+        margin-right: 10px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: $darkGrey;
+      }
+
+      &__name {
+        @include primary-font;
+
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 13px;
+        color: $primaryBlue;
+      }
+
+      &__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 15px;
+
+        &_dot {
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: $primaryBlue;
+        }
+      }
+    }
+
+    &__ribbon {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 100px 0 50px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        opacity: 1;
+      }
+
+      &__date {
+        align-self: center;
+        margin-bottom: 30px;
+        text-align: center;
+
+        @include primary-font;
+
+        font-size: 12px;
+        line-height: 12px;
+        color: $primaryYellow;
+      }
+
+      &__desk {
+        position: relative;
+        padding: 11px;
+        padding-bottom: 25px;
+
+        @include primary-font;
+
+        font-size: 12px;
+        line-height: 15px;
+        color: $primaryBlue;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        width: max-content;
+        max-width: 45%;
+        min-width: 15%;
+
+        &_in {
+          align-self: flex-start;
+          background-color: $darkGrey;
+
+          img {
+            max-width: 260px;
+          }
+
+          &_time {
+            position: absolute;
+            right: 11;
+            bottom: 11;
+            color: $whiteBg;
+
+            @include primary-font;
+
+            font-size: 9px;
+            line-height: 9px;
+          }
+        }
+
+        &_out {
+          align-self: flex-end;
+          background-color: $primaryYellow;
+
+          &_time {
+            position: absolute;
+            right: 11;
+            bottom: 11;
+            color: $primaryTurq;
+
+            @include primary-font;
+
+            font-size: 9px;
+            line-height: 9px;
+
+            &::before {
+              content: "";
+              background: url("../../static/image/messege-icon.svg");
+              width: 10px;
+              height: 4px;
+              position: absolute;
+              left: -12px;
+              bottom: 25%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .chat {
+    &-list {
+      width: 40%;
+    }
+
+    &-text {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chat {
+    &-list {
+      width: 100%;
+    }
+
+    &-text {
+      display: none;
+    }
+  }
+}

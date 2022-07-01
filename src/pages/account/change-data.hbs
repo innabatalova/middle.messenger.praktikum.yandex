@@ -1,10 +1,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Изменение данных</title>
-  <link rel="stylesheet" href="../../../css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="../../../.css/style.css">
 
 </head>
 
@@ -19,14 +16,14 @@
         <span class="account__avatar__name">Иван</span>
       </div>
       <div class="account__input">
-        {{> change name="email" data="Почта" type="text"}}
-        {{> change name="login" data="Логин" type="text"}}
-        {{> change name="first_name" data="Имя" type="text"}}
-        {{> change name="second_name" data="Фамилия" type="text"}}
-        {{> change name="display_name" data="Имя в чате" type="text"}}
-        {{> change name="phone" data="Телефон" type="text"}}
+        {{> change/change name="email" data="Почта" type="text"}}
+        {{> change/change name="login" data="Логин" type="text"}}
+        {{> change/change name="first_name" data="Имя" type="text"}}
+        {{> change/change name="second_name" data="Фамилия" type="text"}}
+        {{> change/change name="display_name" data="Имя в чате" type="text"}}
+        {{> change/change name="phone" data="Телефон" type="text"}}
       </div>
-      {{> button name="Сохранить" class="account__button"}}
+      {{> button/button name="Сохранить" class="account__button"}}
     </div>
   </div>
 </main>

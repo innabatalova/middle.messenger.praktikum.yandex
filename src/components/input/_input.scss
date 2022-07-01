@@ -1,0 +1,48 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_variables.scss";
+
+.auth-form {
+  &__input {
+    width: 100%;
+    max-width: 280px;
+    border: none;
+    border-bottom: 1px solid $primaryYellow;
+    margin-bottom: 30px;
+
+    @include primary-font;
+
+    font-size: 13px;
+    line-height: 13px;
+    color: $primaryBlue;
+
+    &:focus,
+    &:hover,
+    &:active {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &_label {
+      @include primary-font;
+
+      font-size: 13px;
+      line-height: 13px;
+      color: $primaryTurq;
+    }
+  }
+}
+
+.input {
+  &__error {
+    &_label {
+      @include primary-font;
+
+      color: $errorRed;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 8px;
+      position: relative;
+      top: -25px;
+    }
+  }
+}
