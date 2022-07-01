@@ -34,7 +34,7 @@ const formSubmit = (event: Event): void => {
         console.log("Данные формы", data);
       }
     } else {
-      console.log("Некорректные данные");
+      console.log("Данные формы", data);
     }
   } else {
     console.log("Некорректные данные");
