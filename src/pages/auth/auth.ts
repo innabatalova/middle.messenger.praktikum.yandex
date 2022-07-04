@@ -1,5 +1,10 @@
 import Block from "../../utils/Block";
-import { inputFocus, inputBlur, formSubmit } from "../../utils/events";
+import {
+  goToRegister,
+  inputFocus,
+  inputBlur,
+  formSubmit,
+} from "../../utils/events";
 
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -33,8 +38,10 @@ class Auth extends Block {
       },
     });
     const linkToReg = new Link({
-      href: "/registry",
       name: "Нет аккаунта?",
+      events: {
+        click: goToRegister,
+      },
     });
 
     super("div", {

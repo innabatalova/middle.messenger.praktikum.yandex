@@ -1,5 +1,10 @@
 import Block from "../../utils/Block";
-import { inputFocus, inputBlur, formSubmit } from "../../utils/events";
+import {
+  goToLogin,
+  inputFocus,
+  inputBlur,
+  formSubmit,
+} from "../../utils/events";
 
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -73,8 +78,10 @@ class Registry extends Block {
       },
     });
     const linkOpen = new Link({
-      href: "/chat",
       name: "Войти",
+      events: {
+        click: goToLogin,
+      },
     });
 
     super("div", {

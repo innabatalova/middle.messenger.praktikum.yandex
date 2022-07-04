@@ -1,4 +1,17 @@
 import Validation from "./Validation";
+import router from "./Router";
+
+const goToRegister = (event: Event): void => {
+  if ((event.target as HTMLElement).className === "auth-form__link ") {
+    router.go("/sign-up");
+  }
+};
+
+export const goToLogin = (event: Event): void => {
+  if ((event.target as HTMLElement).className === "auth-form__link ") {
+    router.go("/");
+  }
+};
 
 const inputFocus = (event: Event): void => {
   const input = event.target as HTMLInputElement;
@@ -34,7 +47,7 @@ const formSubmit = (event: Event): void => {
         console.log("Данные формы", data);
       }
     } else {
-      console.log("Некорректные данные");
+      console.log("Данные формы", data);
     }
   } else {
     console.log("Некорректные данные");
@@ -78,4 +91,4 @@ const toggleErrorElement = (
   }
 };
 
-export { inputFocus, inputBlur, formSubmit };
+export { goToRegister, inputFocus, inputBlur, formSubmit };

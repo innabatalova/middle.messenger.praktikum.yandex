@@ -1,6 +1,6 @@
 import "./sass/style.scss";
 
-import renderDOM from "./utils/renderDOM";
+import router from "./utils/Router";
 
 import Account from "./pages/account/account";
 import Auth from "./pages/auth/auth";
@@ -9,27 +9,11 @@ import Error404 from "./pages/errors/error-404";
 import Error500 from "./pages/errors/error-500";
 import Registry from "./pages/registry/registry";
 
-const path: string = window.location.pathname;
-
-switch (path) {
-  case "/":
-    renderDOM("#root", new Auth());
-    break;
-  case "/auth":
-    renderDOM("#root", new Auth());
-    break;
-  case "/registry":
-    renderDOM("#root", new Registry());
-    break;
-  case "/chat":
-    renderDOM("#root", new Chat());
-    break;
-  case "/account":
-    renderDOM("#root", new Account());
-    break;
-  case "/500":
-    renderDOM("#root", new Error500({ code: 500 }));
-    break;
-  default:
-    renderDOM("#root", new Error404({ code: 404 }));
-}
+router
+  .use("/", Auth)
+  .use("/sign-up", Registry)
+  .use("/messenger", Chat)
+  .use("/settings", Account)
+  .use("/500", Error500, { code: 500 })
+  .use("/404", Error404, { code: 404 })
+  .start();
