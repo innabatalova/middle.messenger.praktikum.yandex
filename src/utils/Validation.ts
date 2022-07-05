@@ -34,7 +34,7 @@ class Validation {
     },
     repeat_password: {
       pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
-      error: "Неверный пароль",
+      error: "Пароли не совпадают",
       success: "Пароли совпали",
     },
     phone: {
@@ -50,10 +50,7 @@ class Validation {
   };
 
   static verification(inputName: string, inputValue: string) {
-    const verifResult: {
-      verify: boolean;
-      message: string;
-    } = {
+    const verifResult: { verify: boolean; message: string } = {
       verify: true,
       message: "",
     };

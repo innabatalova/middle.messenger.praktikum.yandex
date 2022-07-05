@@ -3,7 +3,7 @@ import {
   goToLogin,
   inputFocus,
   inputBlur,
-  formSubmit,
+  validationForm,
 } from "../../utils/events";
 
 import Input from "../../components/input/input";
@@ -74,7 +74,7 @@ class Registry extends Block {
     const buttonRegistry = new Button({
       name: "Зарегистрироваться",
       events: {
-        click: formSubmit,
+        click: validationForm,
       },
     });
     const linkOpen = new Link({

@@ -6,9 +6,12 @@ enum METHODS {
 }
 
 type Options = {
-  timeout?: number;
   method: string;
+  timeout?: number;
+  credentials?: boolean;
+  mode?: string;
   headers?: Record<string, string>;
+  body?: Record<string, any>;
   data?: Record<string, any>;
 };
 
@@ -60,7 +63,7 @@ class HTTPTransport {
   }
 
   private request = (url: string, options: Options, timeout = 3000) => {
-    const { headers = {}, method, data } = options;
+    const { headers = {}, method, credentials, data, body } = options;
 
     return new Promise((res, rej) => {
       const xhr = new XMLHttpRequest();
@@ -75,20 +78,32 @@ class HTTPTransport {
         xhr.setRequestHeader(key, headers[key]);
       });
 
+      if (credentials) {
+        xhr.withCredentials = true;
+      }
+
+      xhr.responseType = "json";
+
       xhr.timeout = timeout;
 
       xhr.onload = () => res(xhr);
-      xhr.onabort = rej;
-      xhr.onerror = rej;
-      xhr.ontimeout = rej;
+      xhr.onabort = () => rej(new Error("Разрыв соединения"));
+      xhr.onerror = () => rej(new Error("Ошибка соединения"));
+      xhr.ontimeout = () => rej(new Error("Время ожидания ответа превышено"));
 
-      if (isGet || !data) {
+      if (isGet) {
         xhr.send();
-      } else {
-        xhr.send(JSON.stringify(data));
+      }
+
+      if (body) {
+        xhr.send(JSON.stringify(body));
+      }
+
+      if (!isGet && data) {
+        xhr.send(data as Document);
       }
     });
   };
 }
 
-export default HTTPTransport;
+export default new HTTPTransport();

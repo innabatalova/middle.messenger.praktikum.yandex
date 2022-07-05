@@ -3,7 +3,7 @@ import {
   goToRegister,
   inputFocus,
   inputBlur,
-  formSubmit,
+  validationForm,
 } from "../../utils/events";
 
 import Input from "../../components/input/input";
@@ -34,7 +34,7 @@ class Auth extends Block {
     const buttonAuth = new Button({
       name: "Авторизоваться",
       events: {
-        click: formSubmit,
+        click: validationForm,
       },
     });
     const linkToReg = new Link({

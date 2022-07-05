@@ -25,9 +25,7 @@ const inputBlur = (event: Event): void => {
   toggleErrorElement(input, verifyResult);
 };
 
-const formSubmit = (event: Event): void => {
-  event.preventDefault();
-
+const validationForm = (event: Event): Record<string, string> | void => {
   const data: Record<string, string> = {};
   const inputFields = document.querySelectorAll(".auth-form__input");
   let validationError: number = 0;
@@ -42,15 +40,21 @@ const formSubmit = (event: Event): void => {
   if (validationError === 0) {
     if (document.querySelector('[name="repeat_password"]')) {
       if (!(data.password === data.repeat_password)) {
-        console.log("Пароли не совпадают");
+        const test: HTMLElement | null =
+          document.querySelector(".input-wrapper");
+        const div = document.createElement("div");
+        div.setAttribute("class", "input__error_label");
+        div.textContent = "Пароли не совпадают";
+        event.preventDefault();
+        test.appendChild(div);
       } else {
-        console.log("Данные формы", data);
+        return data;
       }
     } else {
-      console.log("Данные формы", data);
+      return data;
     }
   } else {
-    console.log("Некорректные данные");
+    return undefined;
   }
 };
 
@@ -91,4 +95,4 @@ const toggleErrorElement = (
   }
 };
 
-export { goToRegister, inputFocus, inputBlur, formSubmit };
+export { goToRegister, inputFocus, inputBlur, validationForm };
