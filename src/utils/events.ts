@@ -1,5 +1,6 @@
 import Validation from "./Validation";
 import router from "./Router";
+import auth from "../controllers/auth";
 
 const goToRegister = (event: Event): void => {
   if ((event.target as HTMLElement).className === "auth-form__link ") {
@@ -25,7 +26,29 @@ const inputBlur = (event: Event): void => {
   toggleErrorElement(input, verifyResult);
 };
 
-const validationForm = (event: Event): Record<string, string> | void => {
+// const signIn = (event: Event) => {
+//   event.preventDefault();
+
+//   const data = validationForm();
+
+//   if (data) {
+//     auth.signIn(data);
+//   }
+// };
+
+const signUp = (event: Event) => {
+  event.preventDefault();
+
+  const data = validationForm();
+
+  console.log(data);
+
+  if (data) {
+    auth.signUp(data);
+  }
+};
+
+const validationForm = (): Record<string, string> | void => {
   const data: Record<string, string> = {};
   const inputFields = document.querySelectorAll(".auth-form__input");
   let validationError: number = 0;
@@ -40,13 +63,12 @@ const validationForm = (event: Event): Record<string, string> | void => {
   if (validationError === 0) {
     if (document.querySelector('[name="repeat_password"]')) {
       if (!(data.password === data.repeat_password)) {
-        const test: HTMLElement | null =
+        const inputWrapper: HTMLElement | null =
           document.querySelector(".input-wrapper");
         const div = document.createElement("div");
         div.setAttribute("class", "input__error_label");
         div.textContent = "Пароли не совпадают";
-        event.preventDefault();
-        test.appendChild(div);
+        inputWrapper.appendChild(div);
       } else {
         return data;
       }
@@ -95,4 +117,4 @@ const toggleErrorElement = (
   }
 };
 
-export { goToRegister, inputFocus, inputBlur, validationForm };
+export { goToRegister, inputFocus, inputBlur, signUp, validationForm };
