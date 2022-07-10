@@ -1,15 +1,30 @@
 import Block from "../../utils/Block";
+import store, { StoreEvents } from "../../utils/Store";
+import router from "../../utils/Router";
+import { isEmpty } from "../../utils/isEmpty";
+
+import auth from "../../controllers/auth";
+import chats from "../../controllers/chat";
+import settingsController from "../../controllers/setting";
 
 import Field from "../../components/field/field";
 import Link from "../../components/link/link";
 
 import avatar from "../../../static/image/avatar.svg";
 
+import { settingClick } from "../../utils/events";
+
 import "../../sass/style.scss";
 import template from "./template";
 
 class Account extends Block {
   constructor(props: Record<string, any> = {}) {
+    const backArrow = new Link({
+      class: "back__arrow",
+      events: {
+        click: () => router.go("/messenger"),
+      },
+    });
     const avatarUser = avatar;
     const fieldEmail = new Field({
       name: "email",
@@ -52,9 +67,11 @@ class Account extends Block {
       class: "account__check",
     });
     const linkOut = new Link({
-      href: "/chat",
       name: "Выйти",
       class: "account__back",
+      events: {
+        click: settingClick,
+      },
     });
 
     super("div", {
@@ -68,6 +85,7 @@ class Account extends Block {
       linkChangeData,
       linkChangePass,
       linkOut,
+      backArrow,
       ...props,
     });
   }

@@ -4,7 +4,7 @@ const template = Handlebars.compile(
   `<main>
   <div class="chat">
     <div class="chat-list">
-        <a href="/account" class="chat-list__link">Профиль</a>
+    {{{ linkToSetting }}}
         <input type="text" class="chat-list__search" id="search" placeholder="Поиск">
       <div class="chat-list__wrapper">
         {{{ contact }}}

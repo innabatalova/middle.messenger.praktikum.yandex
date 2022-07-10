@@ -4,7 +4,7 @@ const template = Handlebars.compile(
   `<main>
   <div class="container">
     <div class="back">
-      <a class="back__arrow" href="/chat"></a>
+      {{{ backArrow }}}
     </div>
     <div class="account">
       <div class="account__avatar" name="avatar">

@@ -8,9 +8,17 @@ const goToRegister = (event: Event): void => {
   }
 };
 
-export const goToLogin = (event: Event): void => {
+const goToLogin = (event: Event): void => {
   if ((event.target as HTMLElement).className === "auth-form__link ") {
     router.go("/");
+  }
+};
+
+const settingClick = (event: Event): void => {
+  if (
+    (event.target as HTMLElement).className === "auth-form__link account__back"
+  ) {
+    auth.logout();
   }
 };
 
@@ -26,22 +34,20 @@ const inputBlur = (event: Event): void => {
   toggleErrorElement(input, verifyResult);
 };
 
-// const signIn = (event: Event) => {
-//   event.preventDefault();
+const signIn = (event: Event) => {
+  event.preventDefault();
 
-//   const data = validationForm();
+  const data = validationForm();
 
-//   if (data) {
-//     auth.signIn(data);
-//   }
-// };
+  if (data) {
+    auth.signIn(data);
+  }
+};
 
 const signUp = (event: Event) => {
   event.preventDefault();
 
   const data = validationForm();
-
-  console.log(data);
 
   if (data) {
     auth.signUp(data);
@@ -117,4 +123,13 @@ const toggleErrorElement = (
   }
 };
 
-export { goToRegister, inputFocus, inputBlur, signUp, validationForm };
+export {
+  goToRegister,
+  goToLogin,
+  settingClick,
+  inputFocus,
+  inputBlur,
+  signUp,
+  signIn,
+  validationForm,
+};

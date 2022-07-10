@@ -37,6 +37,38 @@ class AuthAPI extends BaseAPI {
 
     return this.http.post(this.signUpUrl, options);
   }
+
+  public signIn(data: Record<string, any>) {
+    const options: Options = {
+      method: "POST",
+      credentials: true,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: data,
+    };
+
+    return this.http.post(this.signInUrl, options);
+  }
+
+  public getUserInfo() {
+    const options: Options = {
+      method: "GET",
+      credentials: true,
+    };
+
+    return this.http.get(this.getUserInfoUrl, options);
+  }
+
+  public logout() {
+    const options: Options = {
+      method: "POST",
+      credentials: true,
+      body: {},
+    };
+
+    return this.http.post(this.logoutUrl, options);
+  }
 }
 
 export default AuthAPI;

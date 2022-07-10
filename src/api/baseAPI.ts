@@ -1,7 +1,7 @@
 import HTTPTransport from "../utils/HTTPTransport";
 
 abstract class BaseAPI {
-  http;
+  http: typeof HTTPTransport;
   baseUrl: string;
 
   public constructor() {
