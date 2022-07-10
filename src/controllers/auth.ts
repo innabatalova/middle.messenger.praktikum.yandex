@@ -17,7 +17,6 @@ class AuthController {
       .signUp(data)
       .then(() => {
         router.go("/messenger");
-        console.log(JSON.stringify(data));
       })
       .catch((err: Error) => alert(err.message));
   }

@@ -1,11 +1,5 @@
 import Block from "../../utils/Block";
-import {
-  goToLogin,
-  inputFocus,
-  inputBlur,
-  signUp,
-  validationForm,
-} from "../../utils/events";
+import { goToLogin, inputFocus, inputBlur, signUp } from "../../utils/events";
 
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -76,6 +70,7 @@ class Registry extends Block {
       name: "Зарегистрироваться",
       events: {
         click: signUp,
+        goToLogin,
       },
     });
     const linkOpen = new Link({
