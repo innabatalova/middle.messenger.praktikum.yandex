@@ -607,7 +607,7 @@ body {
   color: #2400ff;
 }
 
-.account__avatar__label {
+.account__avatar__input {
   align-self: center;
   text-align: center;
   width: 120px;
@@ -618,12 +618,6 @@ body {
   line-height: 16px;
   color: #02eefd;
   text-decoration: underline;
-}
-
-.account__avatar__input {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
 }
 
 .change__field__input {
@@ -1010,6 +1004,7 @@ body {
 }
 
 .auth-form__link {
+  cursor: pointer;
   display: inline-block;
   text-align: center;
   font-family: 'Inter';

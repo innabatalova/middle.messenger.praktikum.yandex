@@ -7,18 +7,43 @@ const template = Handlebars.compile(
       {{{ backArrow }}}
     </div>
     <div class="account">
+
       <div class="account__avatar" name="avatar">
         <img src="{{ avatarUser }}" alt="user avatar" class="account__avatar__img">
-        <span class="account__avatar__name">Иван</span>
-        <span class="account__avatar__change">Поменять аватар</span>
+        <span class="account__avatar__name">{{{ user.first_name }}}</span>
+        {{{ linkChangeAvatar }}}
       </div>
+
       <div class="account__input">
-            {{{ fieldEmail }}}
-            {{{ fieldLogin }}}
-            {{{ fieldFisrtName }}}
-            {{{ fieldSecondName }}}
-            {{{ fieldDisplayName }}}
-            {{{ fieldPhone }}}
+            <div class="account__field" name="email">
+              <span class="account__field__data">Почта</span>
+              <span class="account__field__value">{{{ user.email }}}</span>
+            </div>
+
+            <div class="account__field" name="login">
+              <span class="account__field__data">Логин</span>
+              <span class="account__field__value">{{{ user.login }}}</span>
+            </div>
+
+            <div class="account__field" name="first_name">
+              <span class="account__field__data">Имя</span>
+              <span class="account__field__value">{{{ user.first_name }}}</span>
+            </div>
+
+            <div class="account__field" name="second_name">
+              <span class="account__field__data">Фамилия</span>
+              <span class="account__field__value">{{{ user.second_name }}}</span>
+            </div>
+
+            <div class="account__field" name="display_name">
+              <span class="account__field__data">Имя в чате</span>
+              <span class="account__field__value">{{{ user.display_name }}}</span>
+            </div>
+
+            <div class="account__field" name="phone">
+              <span class="account__field__data">Телефон</span>
+              <span class="account__field__value">{{{ user.phone }}}</span>
+            </div>
       </div>
       {{{ linkChangeData }}}
       {{{ linkChangePass }}}

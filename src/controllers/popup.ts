@@ -1,48 +1,40 @@
 import Block from "../utils/Block";
 
 import Input from "../components/input/input";
-//import Form from "../module/form/form";
-//import Popup from "../module/popup/popup";
+import Button from "../components/button/button";
+import Popup from "../components/popup/popup";
 
 class PopupController {
   private innerInputs: Record<string, any>[] = [];
-  private form: Block;
+  private button: Button;
 
   public createPopup(props: Record<string, any>): Block {
     this.createInputs(props.inputs);
-    this.createForm(props);
+    this.createButton(props.button);
 
-    return new Popup({ form: this.form });
+    return new Popup({
+      popupTitle: props.title,
+      popupInputs: this.innerInputs,
+      popupButton: this.button,
+    });
   }
 
   private createInputs(inputs: Record<string, any>[]) {
     inputs.forEach((input) => {
       this.innerInputs.push({
         input: new Input({
-          className: input.className,
+          class: input.class,
           type: input.type,
           name: input.name,
-          accept: input?.accept,
-          placeholder: input?.placeholder,
         }),
       });
     }, []);
   }
 
-  private createForm(props: Record<string, any>) {
-    this.form = new Form(
-      {
-        button: {
-          className: "form__button button",
-          type: "submit",
-          content: props.button.content,
-        },
-        formId: props.formId,
-        formTitle: props.formTitle,
-        events: props.events,
-      },
-      this.innerInputs
-    );
+  private createButton(props: Record<string, any>) {
+    this.button = new Button({
+      name: props.name,
+    });
   }
 }
 
