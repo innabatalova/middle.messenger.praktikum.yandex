@@ -2,15 +2,18 @@ import Block from "../utils/Block";
 
 import Input from "../components/input/input";
 import Button from "../components/button/button";
+import Link from "../components/link/link";
 import Popup from "../components/popup/popup";
 
 class PopupController {
   private innerInputs: Record<string, any>[] = [];
   private button: Button;
+  private link: Link;
 
   public createPopup(props: Record<string, any>): Block {
     this.createInputs(props.inputs);
     this.createButton(props.button);
+    this.createLink(props.link);
 
     return new Popup({
       popupId: props.id,
@@ -18,6 +21,7 @@ class PopupController {
       popupTitle: props.title,
       popupInputs: this.innerInputs,
       popupButton: this.button,
+      popupLink: this.link,
     });
   }
 
@@ -37,6 +41,14 @@ class PopupController {
 
   private createButton(props: Record<string, any>) {
     this.button = new Button({
+      name: props.name,
+      events: props.events,
+    });
+  }
+
+  private createLink(props: Record<string, any>) {
+    this.link = new Link({
+      dataset: props.dataset,
       name: props.name,
       events: props.events,
     });

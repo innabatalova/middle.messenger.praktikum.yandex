@@ -32,6 +32,18 @@ class SettingsController {
               },
             },
           },
+          link: {
+            dataset: "closePopup",
+            name: "Закрыть",
+            events: {
+              click: () => {
+                const avatarPopupClose = document.querySelector(
+                  ".account__avatar__download"
+                ) as HTMLDivElement;
+                avatarPopupClose.remove();
+              },
+            },
+          },
           inputs: [
             {
               class: "account__avatar__input",
@@ -103,6 +115,18 @@ class SettingsController {
               },
             },
           },
+          link: {
+            dataset: "closePopup",
+            name: "Закрыть",
+            events: {
+              click: () => {
+                const avatarPopupClose = document.querySelector(
+                  ".account__avatar__download"
+                ) as HTMLDivElement;
+                avatarPopupClose.remove();
+              },
+            },
+          },
           inputs: [
             {
               class: "change__field__input",
@@ -152,53 +176,62 @@ class SettingsController {
         renderDOM("main", profilePopup);
         break;
 
-      // case "openChangePasswordPopup":
-      //   const passwordPopup = popup.createPopup({
-      //     formId: "passwordForm",
-      //     formTitle: "Изменить пароль",
-      //     events: {
-      //       submit: (event: Event) => {
-      //         event.preventDefault();
+      case "openChangePasswordPopup":
+        const passwordPopup = popup.createPopup({
+          id: "passwordPopup",
+          class: "change__form",
+          title: "Изменить пароль",
+          button: {
+            name: "Изменить",
+            events: {
+              click: () => {
+                const passwordPopup = document.getElementById(
+                  "passwordPopup"
+                ) as HTMLFormElement;
 
-      //         const passwordForm = document.getElementById(
-      //           "passwordForm"
-      //         ) as HTMLFormElement;
+                const formData: Record<string, any> = {};
+                new FormData(passwordPopup).forEach((value, key) => {
+                  formData[key] = value;
+                });
 
-      //         const formData: Record<string, any> = {};
-      //         new FormData(passwordForm).forEach((value, key) => {
-      //           formData[key] = value;
-      //         });
+                user.changeUserPassword(formData);
 
-      //         user.changeUserPassword(formData);
-      //       },
-      //     },
-      //     inputs: [
-      //       {
-      //         className: "input form__input",
-      //         type: "password",
-      //         name: "oldPassword",
-      //         placeholder: "Старый пароль",
-      //       },
-      //       {
-      //         className: "input form__input",
-      //         type: "password",
-      //         name: "newPassword",
-      //         placeholder: "Новый пароль",
-      //       },
-      //     ],
-      //     button: {
-      //       content: "Изменить",
-      //     },
-      //   });
+                const avatarPopupClose = document.querySelector(
+                  ".account__avatar__download"
+                ) as HTMLDivElement;
+                avatarPopupClose.remove();
+              },
+            },
+          },
+          link: {
+            dataset: "closePopup",
+            name: "Закрыть",
+            events: {
+              click: () => {
+                const avatarPopupClose = document.querySelector(
+                  ".account__avatar__download"
+                ) as HTMLDivElement;
+                avatarPopupClose.remove();
+              },
+            },
+          },
+          inputs: [
+            {
+              class: "change__field__input",
+              type: "password",
+              name: "oldPassword",
+              placeholder: "Старый пароль",
+            },
+            {
+              class: "change__field__input",
+              type: "password",
+              name: "newPassword",
+              placeholder: "Новый пароль",
+            },
+          ],
+        });
 
-      //   renderDOM("main", passwordPopup);
-      //   break;
-
-      case "closePopup":
-        const avatarPopupClose = document.querySelector(
-          ".account__avatar__download"
-        ) as HTMLDivElement;
-        avatarPopupClose.remove();
+        renderDOM("main", passwordPopup);
         break;
 
       default:

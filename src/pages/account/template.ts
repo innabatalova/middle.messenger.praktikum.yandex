@@ -58,7 +58,7 @@ const template = Handlebars.compile(
       {{{ linkChangeData }}}
       {{{ linkChangePass }}}
       {{{ linkOut }}}
-    </div>
+      </div>
   </div>
 </main>`
 );

@@ -42,7 +42,11 @@ class Account extends Block {
     });
     const linkChangePass = new Link({
       name: "Изменить пароль",
+      dataset: "openChangePasswordPopup",
       class: "account__check",
+      events: {
+        click: settingsController.pageClick,
+      },
     });
     const linkOut = new Link({
       name: "Выйти",
