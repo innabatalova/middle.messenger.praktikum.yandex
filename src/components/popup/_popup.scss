@@ -60,17 +60,31 @@
 }
 
 .change {
+  &__form {
+    width: 40%;
+    height: max-content;
+  }
+
   &__field {
     &__input {
-      text-align: right;
-
-      @include primary-font;
+      max-width: 100%;
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      height: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 14%);
 
       font-size: 13px;
       line-height: 13px;
       color: $secondaryYellow;
-      border: none;
+      border: 0 0 12px rgba(0, 0, 0, 14%);
       outline: none;
+    }
+    &:focus,
+    &:hover,
+    &:active {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 14%) !important;
     }
   }
 }

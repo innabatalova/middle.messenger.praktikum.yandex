@@ -44,59 +44,113 @@ class SettingsController {
         renderDOM("main", avatarPopup);
         break;
 
-      // case "openChangeProfilePopup":
-      //   const profilePopup = popup.createPopup({
-      //     popipId: "profilePopup",
-      //     title: "Изменить данные",
-      //     button: {
-      //       name: "Сохранить",
-      //       event: {
-      //         click: () => {
-      //           const profilePopup = document.getElementById(
-      //             "profilePopup"
-      //           ) as HTMLFormElement;
-      //           const form = new FormData(profilePopup);
+      case "openChangeProfilePopup":
+        const oldProfileEmail = document.querySelector(
+          '[name="email"]'
+        ) as HTMLFormElement;
+        const emailOldProps = oldProfileEmail.childNodes[3].textContent;
 
-      //           user.changeUserAvatar(form);
-      //         },
-      //       },
-      //     },
-      //     inputs: [
-      //       {
-      //         class: "change__field__input",
-      //         type: "text",
-      //         name: "email",
-      //       },
-      //       {
-      //         class: "change__field__input",
-      //         type: "text",
-      //         name: "login",
-      //       },
-      //       {
-      //         class: "change__field__input",
-      //         type: "text",
-      //         name: "first_name",
-      //       },
-      //       {
-      //         class: "change__field__input",
-      //         type: "text",
-      //         name: "second_name",
-      //       },
-      //       {
-      //         class: "change__field__input",
-      //         type: "text",
-      //         name: "display_name",
-      //       },
-      //       {
-      //         class: "change__field__input",
-      //         type: "text",
-      //         name: "phone",
-      //       },
-      //     ],
-      //   });
+        const oldProfileLogin = document.querySelector(
+          '[name="login"]'
+        ) as HTMLFormElement;
+        const loginOldProps = oldProfileLogin.childNodes[3].textContent;
 
-      //   renderDOM("main", profilePopup);
-      //   break;
+        const oldProfileFirstName = document.querySelector(
+          '[name="first_name"]'
+        ) as HTMLFormElement;
+        const firstNameOldProps = oldProfileFirstName.childNodes[3].textContent;
+
+        const oldProfileSecondName = document.querySelector(
+          '[name="second_name"]'
+        ) as HTMLFormElement;
+        const secondNameOldProps =
+          oldProfileSecondName.childNodes[3].textContent;
+
+        const oldProfileDisplayName = document.querySelector(
+          '[name="display_name"]'
+        ) as HTMLFormElement;
+        const displayNameOldProps =
+          oldProfileDisplayName.childNodes[3].textContent;
+
+        const oldProfilePhone = document.querySelector(
+          '[name="phone"]'
+        ) as HTMLFormElement;
+        const phoneOldProps = oldProfilePhone.childNodes[3].textContent;
+
+        const profilePopup = popup.createPopup({
+          id: "profilePopup",
+          class: "change__form",
+          title: "Изменить данные",
+          button: {
+            name: "Сохранить",
+            events: {
+              click: () => {
+                const profileForm = document.getElementById(
+                  "profilePopup"
+                ) as HTMLFormElement;
+
+                const formData: Record<string, any> = {};
+                new FormData(profileForm).forEach((value, key) => {
+                  formData[key] = value;
+                });
+
+                user.changeUserProfile(formData);
+
+                const avatarPopupClose = document.querySelector(
+                  ".account__avatar__download"
+                ) as HTMLDivElement;
+                avatarPopupClose.remove();
+              },
+            },
+          },
+          inputs: [
+            {
+              class: "change__field__input",
+              type: "text",
+              name: "email",
+              placeholder: "Email",
+              value: emailOldProps,
+            },
+            {
+              class: "change__field__input",
+              type: "text",
+              name: "login",
+              placeholder: "Логин",
+              value: loginOldProps,
+            },
+            {
+              class: "change__field__input",
+              type: "text",
+              name: "first_name",
+              placeholder: "Имя",
+              value: firstNameOldProps,
+            },
+            {
+              class: "change__field__input",
+              type: "text",
+              name: "second_name",
+              placeholder: "Фамилия",
+              value: secondNameOldProps,
+            },
+            {
+              class: "change__field__input",
+              type: "text",
+              name: "display_name",
+              placeholder: "Ник",
+              value: displayNameOldProps,
+            },
+            {
+              class: "change__field__input",
+              type: "text",
+              name: "phone",
+              placeholder: "Телефон",
+              value: phoneOldProps,
+            },
+          ],
+        });
+
+        renderDOM("main", profilePopup);
+        break;
 
       // case "openChangePasswordPopup":
       //   const passwordPopup = popup.createPopup({

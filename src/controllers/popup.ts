@@ -14,6 +14,7 @@ class PopupController {
 
     return new Popup({
       popupId: props.id,
+      popupClass: props.class,
       popupTitle: props.title,
       popupInputs: this.innerInputs,
       popupButton: this.button,
@@ -27,6 +28,8 @@ class PopupController {
           class: input.class,
           type: input.type,
           name: input.name,
+          placeholder: input.placeholder,
+          value: input.value,
         }),
       });
     }, []);

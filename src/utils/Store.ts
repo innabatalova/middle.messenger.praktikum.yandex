@@ -9,7 +9,6 @@ class Store extends EventBus {
   public state: Record<string, any> = {};
 
   public getState() {
-    console.log(this.state.user);
     return this.state;
   }
 

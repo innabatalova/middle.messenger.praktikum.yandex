@@ -11,8 +11,6 @@ import Link from "../../components/link/link";
 import { settingClick } from "../../utils/events";
 import settingsController from "../../controllers/setting";
 
-import avatar from "../../../static/image/avatar.svg";
-
 import "../../sass/style.scss";
 import template from "./template";
 
@@ -36,7 +34,11 @@ class Account extends Block {
 
     const linkChangeData = new Link({
       name: "Изменить данные",
+      dataset: "openChangeProfilePopup",
       class: "account__check",
+      events: {
+        click: settingsController.pageClick,
+      },
     });
     const linkChangePass = new Link({
       name: "Изменить пароль",
@@ -68,8 +70,6 @@ class Account extends Block {
     store.on(StoreEvents.Updated, () => {
       this.setProps(store.getState());
     });
-
-    console.log(avatar);
   }
 
   render() {
