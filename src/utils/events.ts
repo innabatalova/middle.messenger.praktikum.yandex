@@ -69,8 +69,7 @@ const validationForm = (): Record<string, string> | void => {
   if (validationError === 0) {
     if (document.querySelector('[name="repeat_password"]')) {
       if (!(data.password === data.repeat_password)) {
-        const inputWrapper: HTMLElement | null =
-          document.querySelector(".input-wrapper");
+        const inputWrapper: any = document.querySelector(".input-wrapper");
         const div = document.createElement("div");
         div.setAttribute("class", "input__error_label");
         div.textContent = "Пароли не совпадают";

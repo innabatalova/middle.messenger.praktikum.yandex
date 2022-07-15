@@ -5,11 +5,15 @@ import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import Link from "../../components/link/link";
 
+import avatar from "../../../static/image/avatar.svg";
+
 import "../../sass/style.scss";
 import template from "./template";
 
 class Registry extends Block {
   constructor(props: Record<string, any> = {}) {
+    const avatarUser = avatar;
+
     const inputEmail = new Input({
       name: "email",
       type: "email",
@@ -66,6 +70,7 @@ class Registry extends Block {
         blur: inputBlur,
       },
     });
+
     const buttonRegistry = new Button({
       name: "Зарегистрироваться",
       events: {
@@ -90,6 +95,7 @@ class Registry extends Block {
       inputPassRepeat,
       buttonRegistry,
       linkOpen,
+      avatarUser,
       ...props,
     });
   }

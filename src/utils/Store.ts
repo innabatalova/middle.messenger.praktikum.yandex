@@ -6,15 +6,15 @@ export enum StoreEvents {
 }
 
 class Store extends EventBus {
-  private state: Record<string, any> = {};
+  public state: Record<string, any> = {};
 
   public getState() {
+    console.log(this.state.user);
     return this.state;
   }
 
   public setState(path: string, value: any) {
     set(this.state, path, value);
-
     this.emit(StoreEvents.Updated);
   }
 }

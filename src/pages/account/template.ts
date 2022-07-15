@@ -1,5 +1,13 @@
 import Handlebars from "handlebars";
 
+Handlebars.registerHelper("if_eq", function (a: any) {
+  if (a == null) {
+    return `http://localhost:3000/avatar.cc23c0e3.svg?1657909389002`;
+  } else {
+    return `https://ya-praktikum.tech/api/v2/resources`;
+  }
+});
+
 const template = Handlebars.compile(
   `<main>
   <div class="container">
@@ -9,7 +17,9 @@ const template = Handlebars.compile(
     <div class="account">
 
       <div class="account__avatar" name="avatar">
-        <img src="{{ avatarUser }}" alt="user avatar" class="account__avatar__img">
+        <img src="{{#if_eq user.avatar}}{{/if_eq}}{{ user.avatar }}"
+        alt="user avatar" 
+        class="account__avatar__img">
         <span class="account__avatar__name">{{{ user.first_name }}}</span>
         {{{ linkChangeAvatar }}}
       </div>

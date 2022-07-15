@@ -8,10 +8,10 @@ import chats from "../../controllers/chat";
 
 import Link from "../../components/link/link";
 
-import avatar from "../../../static/image/avatar.svg";
-
 import { settingClick } from "../../utils/events";
 import settingsController from "../../controllers/setting";
+
+import avatar from "../../../static/image/avatar.svg";
 
 import "../../sass/style.scss";
 import template from "./template";
@@ -24,10 +24,10 @@ class Account extends Block {
         click: () => router.go("/messenger"),
       },
     });
-    const avatarUser = avatar;
 
     const linkChangeAvatar = new Link({
       name: "Поменять аватар",
+      dataset: "openAvatarPopup",
       class: "account__avatar__change",
       events: {
         click: settingsController.pageClick,
@@ -51,7 +51,6 @@ class Account extends Block {
     });
 
     super("div", {
-      avatarUser,
       linkChangeAvatar,
       linkChangeData,
       linkChangePass,
@@ -69,6 +68,8 @@ class Account extends Block {
     store.on(StoreEvents.Updated, () => {
       this.setProps(store.getState());
     });
+
+    console.log(avatar);
   }
 
   render() {

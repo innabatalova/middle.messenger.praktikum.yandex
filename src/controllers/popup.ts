@@ -13,6 +13,7 @@ class PopupController {
     this.createButton(props.button);
 
     return new Popup({
+      popupId: props.id,
       popupTitle: props.title,
       popupInputs: this.innerInputs,
       popupButton: this.button,
@@ -34,6 +35,7 @@ class PopupController {
   private createButton(props: Record<string, any>) {
     this.button = new Button({
       name: props.name,
+      events: props.events,
     });
   }
 }

@@ -1,32 +1,36 @@
 import renderDOM from "../utils/renderDOM";
 
-//import user from "./user";
+import user from "./user";
 import PopupController from "./popup";
 
 class SettingsController {
   public pageClick(event: Event): void {
     const popup = new PopupController();
 
-    const avatarPopup = popup.createPopup({
-      title: "Загрузите файл",
-      button: { name: "Поменять" },
-      inputs: [
-        {
-          class: "account__avatar__input",
-          type: "file",
-          name: "avatar",
-        },
-      ],
-    });
-
-    renderDOM("main", avatarPopup);
-
     switch ((event.target as HTMLElement).dataset.value) {
       case "openAvatarPopup":
         const avatarPopup = popup.createPopup({
-          popupTitle: "Загрузите файл",
-          popupButton: {
+          id: "avatarPopup",
+          title: "Загрузите файл",
+          button: {
             name: "Поменять",
+            events: {
+              click: (event: Event) => {
+                event.preventDefault();
+
+                const avatarPopup = document.getElementById(
+                  "avatarPopup"
+                ) as HTMLFormElement;
+                const form = new FormData(avatarPopup);
+
+                user.changeUserAvatar(form);
+
+                const avatarPopupClose = document.querySelector(
+                  ".account__avatar__download"
+                ) as HTMLDivElement;
+                avatarPopupClose.remove();
+              },
+            },
           },
           inputs: [
             {
@@ -42,65 +46,53 @@ class SettingsController {
 
       // case "openChangeProfilePopup":
       //   const profilePopup = popup.createPopup({
-      //     formId: "profileForm",
-      //     formTitle: "Изменить данные",
-      //     events: {
-      //       submit: (event: Event) => {
-      //         event.preventDefault();
+      //     popipId: "profilePopup",
+      //     title: "Изменить данные",
+      //     button: {
+      //       name: "Сохранить",
+      //       event: {
+      //         click: () => {
+      //           const profilePopup = document.getElementById(
+      //             "profilePopup"
+      //           ) as HTMLFormElement;
+      //           const form = new FormData(profilePopup);
 
-      //         const profileForm = document.getElementById(
-      //           "profileForm"
-      //         ) as HTMLFormElement;
-
-      //         const formData: Record<string, any> = {};
-      //         new FormData(profileForm).forEach((value, key) => {
-      //           formData[key] = value;
-      //         });
-
-      //         user.changeUserProfile(formData);
+      //           user.changeUserAvatar(form);
+      //         },
       //       },
       //     },
       //     inputs: [
       //       {
-      //         className: "input form__input",
+      //         class: "change__field__input",
       //         type: "text",
-      //         name: "first_name",
-      //         placeholder: "Имя",
+      //         name: "email",
       //       },
       //       {
-      //         className: "input form__input",
-      //         type: "text",
-      //         name: "second_name",
-      //         placeholder: "Фамилия",
-      //       },
-      //       {
-      //         className: "input form__input",
-      //         type: "text",
-      //         name: "display_name",
-      //         placeholder: "Имя в чате",
-      //       },
-      //       {
-      //         className: "input form__input",
+      //         class: "change__field__input",
       //         type: "text",
       //         name: "login",
-      //         placeholder: "Логин",
       //       },
       //       {
-      //         className: "input form__input",
-      //         type: "tel",
+      //         class: "change__field__input",
+      //         type: "text",
+      //         name: "first_name",
+      //       },
+      //       {
+      //         class: "change__field__input",
+      //         type: "text",
+      //         name: "second_name",
+      //       },
+      //       {
+      //         class: "change__field__input",
+      //         type: "text",
+      //         name: "display_name",
+      //       },
+      //       {
+      //         class: "change__field__input",
+      //         type: "text",
       //         name: "phone",
-      //         placeholder: "Телефон",
-      //       },
-      //       {
-      //         className: "input form__input",
-      //         type: "email",
-      //         name: "email",
-      //         placeholder: "Почта",
       //       },
       //     ],
-      //     button: {
-      //       content: "Изменить",
-      //     },
       //   });
 
       //   renderDOM("main", profilePopup);
@@ -148,9 +140,12 @@ class SettingsController {
       //   renderDOM("main", passwordPopup);
       //   break;
 
-      // case "closePopup":
-      //   (event.target as HTMLElement).remove();
-      //   break;
+      case "closePopup":
+        const avatarPopupClose = document.querySelector(
+          ".account__avatar__download"
+        ) as HTMLDivElement;
+        avatarPopupClose.remove();
+        break;
 
       default:
         break;

@@ -1,24 +1,24 @@
-import UsersAPI from "../api/userAPI";
+import UserAPI from "../api/userAPI";
 import store from "../utils/Store";
 
 class UserController {
-  private usersAPIInstance: UsersAPI;
+  private usersAPIInstance: UserAPI;
 
   public constructor() {
-    this.usersAPIInstance = new UsersAPI();
+    this.usersAPIInstance = new UserAPI();
   }
 
   public changeUserAvatar(data: FormData) {
     this.usersAPIInstance
       .changeUserAvatar(data)
-      .then((xhr: XMLHttpRequest) => store.setState("user", xhr.response))
+      .then((xhr: any) => store.setState("user", xhr.response))
       .catch((err: Error) => alert(err.message));
   }
 
   public changeUserProfile(data: Record<string, any>) {
     this.usersAPIInstance
       .changeUserProfile(data)
-      .then((xhr: XMLHttpRequest) => store.setState("user", xhr.response))
+      .then((xhr: any) => store.setState("user", xhr.response))
       .catch((err: Error) => alert(err.message));
   }
 
