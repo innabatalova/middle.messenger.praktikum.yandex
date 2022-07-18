@@ -1,13 +1,14 @@
 import Block from "../../utils/Block";
 import router from "../../utils/Router";
 import store, { StoreEvents } from "../../utils/Store";
-import { isEmpty } from "../../utils/isEmpty";
+import { isEmpty } from "../../utils/helpers/isEmpty";
 
 import chat from "../../controllers/chat";
 import auth from "../../controllers/auth";
 import messenger from "../../controllers/messenger";
 
 import Contact from "../../components/contact/contact";
+import Input from "../../components/input/input";
 
 import photo from "../../../static/image/photo-content.png";
 import "../../sass/style.scss";
@@ -19,6 +20,7 @@ class Chat extends Block {
     if (isEmpty(store.getState())) {
       auth.getUserInfo();
       chat.getChats();
+      console.log(store.getState());
     }
 
     const linkToSetting = new Link({
@@ -29,20 +31,30 @@ class Chat extends Block {
       },
     });
 
-    const photoContant = photo;
-    const contactList = [
-      {
-        contact: new Contact({
-          name: "Андрей",
-          text: "Изображение",
-          time: "10:49",
-          counter: "2",
-        }),
+    const inputSearch = new Input({
+      name: "search",
+      id: "search",
+      class: "chat-list__search",
+      type: "text",
+      placeholder: "Поиск",
+      // events: {
+      //   click: () => router.go("/settings"),
+      // },
+    });
+
+    const addContact = new Link({
+      name: "+",
+      class: "contact__counter contact__counter__add",
+      events: {
+        click: messenger.openAddChatPopup,
       },
-    ];
+    });
+
+    const photoContant = photo;
 
     super("div", {
-      contactList,
+      addContact,
+      inputSearch,
       photoContant,
       linkToSetting,
       ...props,

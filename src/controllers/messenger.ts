@@ -1,17 +1,13 @@
-import renderDOM from "../utils/renderDOM";
+import renderDOM from "../utils/helpers/renderDOM";
 
 import PopupController from "./popup";
 import chats from "./chat";
 import user from "./user";
 import store from "../utils/Store";
-import Socket from "utils/Soket";
+import Socket from "../utils/Soket";
 
 class MessengerController {
   public pageClick(event: Event): void {
-    if ((event.target as HTMLElement).dataset.value === "closePopup") {
-      (event.target as HTMLElement).remove();
-    }
-
     if ((event.target as HTMLElement).dataset.value === "messageForm") {
       event.preventDefault();
 
@@ -74,35 +70,51 @@ class MessengerController {
   public openAddChatPopup() {
     const popup = new PopupController();
     const addChatPopup = popup.createPopup({
-      formId: "addChatForm",
-      formTitle: "Создать чат",
-      events: {
-        submit: (event: Event) => {
-          event.preventDefault();
+      id: "addChatPopup",
+      title: "Создать чат",
+      button: {
+        name: "Создать",
+        events: {
+          click: () => {
+            const addChatPopup = document.getElementById(
+              "addChatPopup"
+            ) as HTMLFormElement;
 
-          const addChatForm = document.getElementById(
-            "addChatForm"
-          ) as HTMLFormElement;
-          const formData: Record<string, any> = {};
+            const formData: Record<string, any> = {};
+            new FormData(addChatPopup).forEach((value, key) => {
+              formData[key] = value;
+            });
 
-          new FormData(addChatForm).forEach((value, key) => {
-            formData[key] = value;
-          });
+            chats.createChat(formData);
+            console.log(store.getState());
 
-          chats.createChat(formData);
+            const avatarPopupClose = document.querySelector(
+              ".account__avatar__download"
+            ) as HTMLDivElement;
+            avatarPopupClose.remove();
+          },
+        },
+      },
+      link: {
+        dataset: "closePopup",
+        name: "Закрыть",
+        events: {
+          click: () => {
+            const avatarPopupClose = document.querySelector(
+              ".account__avatar__download"
+            ) as HTMLDivElement;
+            avatarPopupClose.remove();
+          },
         },
       },
       inputs: [
         {
-          className: "input form__input",
+          class: "change__field__input",
           type: "text",
           name: "title",
           placeholder: "Имя чата",
         },
       ],
-      button: {
-        content: "Создать чат",
-      },
     });
 
     renderDOM("main", addChatPopup);

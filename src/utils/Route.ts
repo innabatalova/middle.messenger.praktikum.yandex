@@ -1,5 +1,5 @@
 import Block from "./Block";
-import renderDOM from "./renderDOM";
+import renderDOM from "./helpers/renderDOM";
 
 class Route {
   private pathname: string;

@@ -1,7 +1,7 @@
 import Block from "../../utils/Block";
 import store, { StoreEvents } from "../../utils/Store";
 import router from "../../utils/Router";
-import { isEmpty } from "../../utils/isEmpty";
+import { isEmpty } from "../../utils/helpers/isEmpty";
 
 import auth from "../../controllers/auth";
 import chats from "../../controllers/chat";
@@ -16,6 +16,11 @@ import template from "./template";
 
 class Account extends Block {
   constructor(props: Record<string, any> = {}) {
+    if (isEmpty(store.getState())) {
+      auth.getUserInfo();
+      chats.getChats();
+    }
+
     const backArrow = new Link({
       class: "back__arrow",
       events: {
@@ -65,11 +70,6 @@ class Account extends Block {
       ...props,
       ...store.getState(),
     });
-
-    if (isEmpty(store.getState())) {
-      auth.getUserInfo();
-      chats.getChats();
-    }
 
     store.on(StoreEvents.Updated, () => {
       this.setProps(store.getState());

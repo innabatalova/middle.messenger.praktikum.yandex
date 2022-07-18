@@ -64,7 +64,7 @@ class ChatsController {
   }
 
   public deleteUserFromChat(data: Record<string, any>) {
-    users
+    user
       .findUsersByLogin(data)
       .then((xhr: XMLHttpRequest) => xhr.response[0])
       .then((response: any) => {

@@ -4,21 +4,43 @@ const template = Handlebars.compile(
   `<main>
   <div class="chat">
     <div class="chat-list">
+
     {{{ linkToSetting }}}
-        <input type="text" class="chat-list__search" id="search" placeholder="Поиск">
-      <div class="chat-list__wrapper">
-        {{{ contact }}}
-          {{#each contactList}}
-                {{{ contact }}}
-            {{/each}}
+    {{{ inputSearch }}}
+      
+    <div class="chat-list__wrapper">
+    <div class="contact contact__add">
+      <div class="contact__avatar">
+        <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{user.avatar}}"
+          alt="user avatar"/>
+      </div>
+      <div class="contact__name">Начните общение</div>
+      <div class="contact__text">Создайте новый чат</div>
+      {{{ addContact }}}
+    </div>
+
+    {{#each chats}}
+      <div class="contact" data-id="{{ id }}">
+        <div class="contact__avatar">
+            <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ @root.user.avatar}}"
+              alt="user avatar"/>
+        </div>
+      <div class="contact__name">{{ title }}</div>
+      <div class="contact__text">{{ last_message.content }}</div>
+      <div class="contact__time">?</div>
+      <div class="contact__counter">?</div>
+      </div>
+    {{/each}}
+      
       </div>
     </div>
+
     <div class="chat-text">
-          <div class="chat-text">
       <div class="chat-text__header">
+
         <div class="chat-text__header_wrap">
-        <div class="chat-text__header__avatar"></div>
-        <span class="chat-text__header__name">Вадим</span>
+          <div class="chat-text__header__avatar"></div>
+          <span class="chat-text__header__name">Вадим</span>
         </div>
 
         <div class="chat-text__header__menu">
@@ -26,8 +48,11 @@ const template = Handlebars.compile(
           <div class="chat-text__header__menu_dot"></div>
           <div class="chat-text__header__menu_dot"></div>
         </div>
+
       </div>
+
       <div class="chat-text__ribbon">
+
         <div class="chat-text__ribbon__date">19 июня</div>
         <div class="chat-text__ribbon__desk chat-text__ribbon__desk_in">
           Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.
@@ -35,6 +60,7 @@ const template = Handlebars.compile(
         Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
         <div class="chat-text__ribbon__desk_in_time">11:56</div>
         </div>
+
         <div class="chat-text__ribbon__desk chat-text__ribbon__desk_in">
           <img src="{{ photoContant }}" alt="photo">
           <div class="chat-text__ribbon__desk_in_time">11:56</div>
@@ -42,6 +68,7 @@ const template = Handlebars.compile(
         <div class="chat-text__ribbon__desk chat-text__ribbon__desk_out">Круто!
           <div class="chat-text__ribbon__desk_out_time">12:00</div>
         </div>
+
       </div>
       <div class="chat-text__footer">
         <label class="chat-text__footer_file_label" for="files">
@@ -61,7 +88,6 @@ const template = Handlebars.compile(
           <div class="back__arrow back__arrow_footer"></div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </main>`
