@@ -75,7 +75,6 @@ class Registry extends Block {
       name: "Зарегистрироваться",
       events: {
         click: signUp,
-        goToLogin,
       },
     });
     const linkOpen = new Link({

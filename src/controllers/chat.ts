@@ -28,7 +28,7 @@ class ChatsController {
           });
         });
       })
-      .catch((err: Error) => alert(err.message));
+      .catch((err: Error) => console.log(err.message));
   }
 
   public createChat(data: Record<string, any>) {
@@ -54,13 +54,11 @@ class ChatsController {
           users: [response.id],
           chatId: store.getState().currentChats.id,
         };
-        this.chatsAPIInstance
-          .addUserToChat(data)
-          .then(() =>
-            store.setState(`currentChats.users.${response.login}`, response.id)
-          );
+        this.chatsAPIInstance.addUserToChat(data).then(() => {
+          store.setState(`currentChats.user`, response.first_name);
+        });
       })
-      .catch((err: Error) => alert(err.message));
+      .catch((err: Error) => console.log(err.message));
   }
 
   public deleteUserFromChat(data: Record<string, any>) {

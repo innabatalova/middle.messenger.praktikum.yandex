@@ -51,6 +51,11 @@
           }
         }
       }
+
+      &_back {
+        border: none;
+        background-color: inherit;
+      }
     }
   }
 }

@@ -1,4 +1,15 @@
 import Handlebars from "handlebars";
+import store from "../../utils/Store";
+
+Handlebars.registerHelper("if_user", function (a: HTMLElement) {
+  const i = store.getState().user.display_name;
+
+  if (a == i) {
+    return `_out`;
+  } else {
+    return;
+  }
+});
 
 const template = Handlebars.compile(
   `<main>
@@ -10,20 +21,29 @@ const template = Handlebars.compile(
       
     <div class="chat-list__wrapper">
     <div class="contact contact__add">
-      <div class="contact__avatar">
-        <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{user.avatar}}"
-          alt="user avatar"/>
-      </div>
+      {{#if user.avatar }}
+            <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ user.avatar }}"
+              alt="user avatar"/>
+          {{else}}
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+              alt="user avatar"/>
+          {{/if}}
       <div class="contact__name">Начните общение</div>
       <div class="contact__text">Создайте новый чат</div>
       {{{ addContact }}}
     </div>
 
     {{#each chats}}
-      <div class="contact" data-id="{{ id }}">
+      <div class="contact" data-id="{{ id }}" data-value="chats" data-title="{{ title }}" data-avatar="{{ avatar }}">
         <div class="contact__avatar">
-            <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ @root.user.avatar}}"
+
+          {{#if avatar }}
+            <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ avatar}}"
               alt="user avatar"/>
+          {{else}}
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+              alt="user avatar"/>
+          {{/if}}
         </div>
       <div class="contact__name">{{ title }}</div>
       <div class="contact__text">{{ last_message.content }}</div>
@@ -39,38 +59,58 @@ const template = Handlebars.compile(
       <div class="chat-text__header">
 
         <div class="chat-text__header_wrap">
-          <div class="chat-text__header__avatar"></div>
-          <span class="chat-text__header__name">Вадим</span>
+          <div class="chat-text__header__avatar">
+
+          {{#if currentChats.avatar }}
+            <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ currentChats.avatar }}"
+              alt="user avatar"/>
+          {{else}}
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+              alt="user avatar"/>
+          {{/if}}
+
+          </div>
+          <span class="chat-text__header__name">{{ currentChats.title }}</span>
         </div>
 
-        <div class="chat-text__header__menu">
-          <div class="chat-text__header__menu_dot"></div>
-          <div class="chat-text__header__menu_dot"></div>
-          <div class="chat-text__header__menu_dot"></div>
+        {{{openMenu}}}
+        
+        <div class="menu__open">
+          <div class="menu__open__item"> {{{ addUser }}} Добавить пользователя</div>
+          <div class="menu__open__item"> {{{ removeUser }}} Удалить пользователя</div>
         </div>
 
       </div>
 
       <div class="chat-text__ribbon">
 
-        <div class="chat-text__ribbon__date">19 июня</div>
-        <div class="chat-text__ribbon__desk chat-text__ribbon__desk_in">
-          Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.
-        <br>
-        Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
-        <div class="chat-text__ribbon__desk_in_time">11:56</div>
+      {{#each messages}}
+
+        <div class="chat-text__ribbon__desk chat-text__ribbon__desk{{#if_user name}}{{/if_user}}">
+          <div class="chat-text__ribbon__desk__author chat-text__ribbon__desk__author{{#if_user name}}{{/if_user}}">
+          <div class="chat-text__ribbon__desk__avatar">
+          {{#if avatar }}
+            <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ avatar }}"
+              alt="user avatar"/>
+          {{else}}
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+              alt="user avatar"/>
+          {{/if}}
+          </div>
+          <div class="chat-text__ribbon__desk__name chat-text__ribbon__desk__name{{#if_user name}}{{/if_user}}">{{ name }}</div>
+          </div>
+          {{ content }}
+          <div class="chat-text__ribbon__desk__time chat-text__ribbon__desk__time{{#if_user name}}{{/if_user}}">{{ time }}</div>
         </div>
 
-        <div class="chat-text__ribbon__desk chat-text__ribbon__desk_in">
-          <img src="{{ photoContant }}" alt="photo">
-          <div class="chat-text__ribbon__desk_in_time">11:56</div>
-        </div>
-        <div class="chat-text__ribbon__desk chat-text__ribbon__desk_out">Круто!
-          <div class="chat-text__ribbon__desk_out_time">12:00</div>
-        </div>
+      {{/each}}
+
+      <div class="chat-text__ribbon__date">{{ messages.[0].time }}</div>
+
 
       </div>
-      <div class="chat-text__footer">
+      <form class="chat-text__footer" data-value="messageForm">
+
         <label class="chat-text__footer_file_label" for="files">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18662 13.5L14.7628 5.92389L15.7056 6.8667L8.12943 14.4428L7.18662 13.5Z" fill="#2400FF"/>
@@ -82,12 +122,15 @@ const template = Handlebars.compile(
           <path fill-rule="evenodd" clip-rule="evenodd" d="M9.70092 16.0144C7.95751 17.7578 7.95123 20.5782 9.68689 22.3138C11.4226 24.0495 14.2429 24.0432 15.9863 22.2998L15.0435 21.357C13.8231 22.5774 11.8489 22.5818 10.6339 21.3668C9.41894 20.1518 9.42334 18.1776 10.6437 16.9572L9.70092 16.0144Z" fill="#2400FF"/>
           </svg>
         </label>
+
         <input type="file" class="chat-text__footer_file_input" id="files">
         <input type="text" class="chat-text__footer_message_input" id="message" placeholder="Сообщение">
-        <div class="chat-text__footer_back">
+
+        <button class="chat-text__footer_back" type="submit">
           <div class="back__arrow back__arrow_footer"></div>
-        </div>
-      </div>
+        </button>
+
+      </form>
     </div>
   </div>
 </main>`

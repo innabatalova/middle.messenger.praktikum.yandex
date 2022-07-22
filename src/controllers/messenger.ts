@@ -1,7 +1,7 @@
 import renderDOM from "../utils/helpers/renderDOM";
 
 import PopupController from "./popup";
-import chats from "./chat";
+import chat from "./chat";
 import user from "./user";
 import store from "../utils/Store";
 import Socket from "../utils/Soket";
@@ -13,6 +13,7 @@ class MessengerController {
 
       const id = store.getState().currentChats.id;
       const sockets = store.getState().socket;
+
       let socket: Socket;
 
       Object.entries(sockets).forEach(([key, value]) => {
@@ -64,6 +65,8 @@ class MessengerController {
       });
 
       store.setState("currentChats", { id, title, avatar });
+
+      console.log(store.getState());
     }
   }
 
@@ -85,8 +88,7 @@ class MessengerController {
               formData[key] = value;
             });
 
-            chats.createChat(formData);
-            console.log(store.getState());
+            chat.createChat(formData);
 
             const avatarPopupClose = document.querySelector(
               ".account__avatar__download"
@@ -123,35 +125,66 @@ class MessengerController {
   public openAddUserToChatPopup() {
     const popup = new PopupController();
     const addUserToChatPopup = popup.createPopup({
-      formId: "addUserToChatForm",
-      formTitle: "Добавить пользователя",
-      events: {
-        submit: (event: Event) => {
-          event.preventDefault();
+      id: "addUserToChatPopup",
+      title: "Добавить пользователя",
+      button: {
+        name: "Добавить",
+        events: {
+          click: (event: Event) => {
+            event.preventDefault();
 
-          const addUserToChatForm = document.getElementById(
-            "addUserToChatForm"
-          ) as HTMLFormElement;
-          const formData: Record<string, any> = {};
+            const addUserToChatPopup = document.getElementById(
+              "addUserToChatPopup"
+            ) as HTMLFormElement;
 
-          new FormData(addUserToChatForm).forEach((value, key) => {
-            formData[key] = value;
-          });
+            const formData: Record<string, any> = {};
+            new FormData(addUserToChatPopup).forEach((value, key) => {
+              formData[key] = value;
+            });
 
-          chats.addUserToChat(formData);
+            chat.addUserToChat(formData);
+
+            const avatarPopupClose = document.querySelector(
+              ".account__avatar__download"
+            ) as HTMLDivElement;
+            avatarPopupClose.remove();
+
+            const mesArray = store.getState().messages;
+            const nameUser = formData.login;
+            const date = new Date();
+            const dataAdding = `${date.getHours()}
+                      ${date.getMinutes()} 
+                      ${date.getDate()}
+                      ${date.getMonth()}
+                      ${date.getFullYear()}`;
+            const textAlert = {
+              content: `Вы добавили ${nameUser} в чат`,
+              time: dataAdding,
+            };
+            mesArray.unshift(textAlert);
+          },
+        },
+      },
+      link: {
+        dataset: "closePopup",
+        name: "Закрыть",
+        events: {
+          click: () => {
+            const avatarPopupClose = document.querySelector(
+              ".account__avatar__download"
+            ) as HTMLDivElement;
+            avatarPopupClose.remove();
+          },
         },
       },
       inputs: [
         {
-          className: "input form__input",
+          class: "change__field__input",
           type: "text",
           name: "login",
-          placeholder: "Логин пользователя",
+          placeholder: "Введите логин",
         },
       ],
-      button: {
-        content: "Добавить",
-      },
     });
 
     renderDOM("main", addUserToChatPopup);
@@ -160,35 +193,64 @@ class MessengerController {
   public openDeleteUserFromChatPopup() {
     const popup = new PopupController();
     const deleteUserFromChatPopup = popup.createPopup({
-      formId: "deleteUserFromChatForm",
-      formTitle: "Удалить пользователя",
-      events: {
-        submit: (event: Event) => {
-          event.preventDefault();
+      id: "deleteUserFromChatForm",
+      title: "Удалить пользователя",
+      button: {
+        name: "Удалить",
+        events: {
+          click: () => {
+            const deleteUserFromChatForm = document.getElementById(
+              "deleteUserFromChatForm"
+            ) as HTMLFormElement;
 
-          const deleteUserFromChatForm = document.getElementById(
-            "deleteUserFromChatForm"
-          ) as HTMLFormElement;
-          const formData: Record<string, any> = {};
+            const formData: Record<string, any> = {};
+            new FormData(deleteUserFromChatForm).forEach((value, key) => {
+              formData[key] = value;
+            });
 
-          new FormData(deleteUserFromChatForm).forEach((value, key) => {
-            formData[key] = value;
-          });
+            chat.deleteUserFromChat(formData);
 
-          chats.deleteUserFromChat(formData);
+            const avatarPopupClose = document.querySelector(
+              ".account__avatar__download"
+            ) as HTMLDivElement;
+            avatarPopupClose.remove();
+
+            const mesArray = store.getState().messages;
+            const nameUser = formData.login;
+            const date = new Date();
+            const dataRemoving = `${date.getHours()}
+                      ${date.getMinutes()} 
+                      ${date.getDate()}
+                      ${date.getMonth()}
+                      ${date.getFullYear()}`;
+            const textAlert = {
+              content: `Вы удалили ${nameUser} из чата`,
+              time: dataRemoving,
+            };
+            mesArray.unshift(textAlert);
+          },
+        },
+      },
+      link: {
+        dataset: "closePopup",
+        name: "Закрыть",
+        events: {
+          click: () => {
+            const avatarPopupClose = document.querySelector(
+              ".account__avatar__download"
+            ) as HTMLDivElement;
+            avatarPopupClose.remove();
+          },
         },
       },
       inputs: [
         {
-          className: "input form__input",
+          class: "change__field__input",
           type: "text",
           name: "login",
-          placeholder: "Логин пользователя",
+          placeholder: "Введите логин",
         },
       ],
-      button: {
-        content: "Удалить",
-      },
     });
 
     renderDOM("main", deleteUserFromChatPopup);

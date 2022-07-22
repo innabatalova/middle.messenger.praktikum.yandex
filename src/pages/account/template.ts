@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 
-Handlebars.registerHelper("if_eq", function (a: any) {
+Handlebars.registerHelper("if_eq", function (a: HTMLElement) {
   if (a == null) {
     return `http://localhost:3000/avatar.cc23c0e3.svg?1657909389002`;
   } else {

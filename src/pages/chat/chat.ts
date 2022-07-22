@@ -7,13 +7,11 @@ import chat from "../../controllers/chat";
 import auth from "../../controllers/auth";
 import messenger from "../../controllers/messenger";
 
-import Contact from "../../components/contact/contact";
 import Input from "../../components/input/input";
+import Link from "../../components/link/link";
 
-import photo from "../../../static/image/photo-content.png";
 import "../../sass/style.scss";
 import template from "./template";
-import Link from "../../components/link/link";
 
 class Chat extends Block {
   constructor(props: Record<string, any> = {}) {
@@ -37,9 +35,6 @@ class Chat extends Block {
       class: "chat-list__search",
       type: "text",
       placeholder: "Поиск",
-      // events: {
-      //   click: () => router.go("/settings"),
-      // },
     });
 
     const addContact = new Link({
@@ -50,13 +45,49 @@ class Chat extends Block {
       },
     });
 
-    const photoContant = photo;
+    const openMenu = new Link({
+      name: `
+      <div class="chat-text__header__menu_dot"></div>
+      <div class="chat-text__header__menu_dot"></div>
+      <div class="chat-text__header__menu_dot"></div>`,
+      class: "chat-text__header__menu",
+      events: {
+        click: () => {
+          const openMenuBlock = document.querySelector(
+            ".menu__open"
+          ) as HTMLDivElement;
+          openMenuBlock.classList.toggle("menu__open__opened");
+        },
+      },
+    });
+
+    const addUser = new Link({
+      name: "+",
+      class: "contact__counter menu__open__counter",
+      events: {
+        click: messenger.openAddUserToChatPopup,
+      },
+    });
+
+    const removeUser = new Link({
+      name: "-",
+      class: "contact__counter menu__open__counter",
+      events: {
+        click: messenger.openDeleteUserFromChatPopup,
+      },
+    });
 
     super("div", {
       addContact,
+      addUser,
+      openMenu,
+      removeUser,
       inputSearch,
-      photoContant,
       linkToSetting,
+      events: {
+        click: messenger.pageClick,
+        submit: messenger.pageClick,
+      },
       ...props,
       ...store.getState(),
     });

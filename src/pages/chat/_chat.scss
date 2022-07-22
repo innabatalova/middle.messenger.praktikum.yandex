@@ -135,13 +135,14 @@
         font-size: 13px;
         line-height: 13px;
         color: $primaryBlue;
+        margin-left: 5px;
       }
 
       &__menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 15px;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 15px !important;
 
         &_dot {
           width: 3px;
@@ -154,10 +155,10 @@
 
     &__ribbon {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       width: 100%;
-      height: 100%;
-      padding: 100px 0 50px;
+      height: 100vh;
+      padding: 70px 0 50px;
       overflow-y: scroll;
 
       &::-webkit-scrollbar {
@@ -189,44 +190,36 @@
         border-radius: 10px;
         margin-bottom: 15px;
         width: max-content;
-        max-width: 45%;
-        min-width: 15%;
+        max-width: 48%;
+        min-width: 22%;
+        align-self: flex-start;
+        background-color: $darkGrey;
 
-        &_in {
-          align-self: flex-start;
-          background-color: $darkGrey;
+        &__author {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
 
-          img {
-            max-width: 260px;
-          }
-
-          &_time {
-            position: absolute;
-            right: 11;
-            bottom: 11;
-            color: $whiteBg;
-
-            @include primary-font;
-
-            font-size: 9px;
-            line-height: 9px;
+          &_out {
+            align-items: end;
           }
         }
 
-        &_out {
-          align-self: flex-end;
-          background-color: $primaryYellow;
+        &__time {
+          position: absolute;
+          left: 11;
+          bottom: 11;
+          color: $primaryYellow;
 
-          &_time {
-            position: absolute;
+          @include primary-font;
+
+          font-size: 9px;
+          line-height: 9px;
+
+          &_out {
             right: 11;
-            bottom: 11;
+            left: inherit;
             color: $primaryTurq;
-
-            @include primary-font;
-
-            font-size: 9px;
-            line-height: 9px;
 
             &::before {
               content: "";
@@ -238,6 +231,24 @@
               bottom: 25%;
             }
           }
+        }
+
+        &__avatar {
+          margin-bottom: 2px;
+        }
+
+        &__name {
+          color: $primaryYellow;
+          margin-bottom: 15px;
+
+          &_out {
+            color: $primaryTurq;
+          }
+        }
+
+        &_out {
+          align-self: flex-end;
+          background-color: $primaryYellow;
         }
       }
     }
@@ -271,6 +282,7 @@
     height: 47px;
     border-radius: 50%;
     background-color: $darkGrey;
+    margin-bottom: 0;
   }
 
   &__name {
@@ -341,6 +353,44 @@
   &:hover,
   &:active {
     background-color: #e4edfd;
+  }
+}
+
+.menu {
+  &__open {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    display: none;
+
+    &__item {
+      border: 1px solid $primaryBlue;
+      @include primary-font;
+      font-size: 12px;
+      padding: 5px;
+      margin-bottom: 1px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      color: $primaryBlue;
+      background-color: $whiteBg;
+      cursor: pointer;
+    }
+
+    &__counter {
+      width: 24px;
+      height: 24px;
+      margin-right: 3px;
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: #6e6402;
+      }
+    }
+
+    &__opened {
+      display: block;
+    }
   }
 }
 
