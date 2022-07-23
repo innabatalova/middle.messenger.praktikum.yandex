@@ -14,7 +14,7 @@
       left: 0;
       right: 0;
       z-index: 15;
-      background-color: rgba(141, 141, 141, 40%);
+      background-color: rgb(141 141 141 / 40%);
     }
 
     &__form {
@@ -73,18 +73,17 @@
       margin-bottom: 10px;
       height: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 14%) !important;
-
+      box-shadow: 0 0 5px rgb(0 0 0 / 14%) !important;
       font-size: 13px;
       line-height: 13px;
       color: $secondaryYellow;
-      border: 0 0 12px rgba(0, 0, 0, 14%);
+      border: 0 0 12px rgb(0 0 0 / 14%);
       outline: none;
 
       &:focus,
       &:hover,
       &:active {
-        box-shadow: 0 0 24px rgba(0, 0, 0, 14%) !important;
+        box-shadow: 0 0 24px rgb(0 0 0 / 14%) !important;
       }
     }
   }

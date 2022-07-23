@@ -341,6 +341,7 @@
       width: 35px !important;
       height: 35px !important;
       left: -10px !important;
+
       &:focus,
       &:hover,
       &:active {
@@ -365,7 +366,9 @@
 
     &__item {
       border: 1px solid $primaryBlue;
+
       @include primary-font;
+
       font-size: 12px;
       padding: 5px;
       margin-bottom: 1px;
@@ -381,6 +384,7 @@
       width: 24px;
       height: 24px;
       margin-right: 3px;
+
       &:focus,
       &:hover,
       &:active {

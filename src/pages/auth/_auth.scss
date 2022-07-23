@@ -20,7 +20,7 @@ body {
   padding: 30px;
   padding-top: 50px;
   background: $whiteBg;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 14%);
+  box-shadow: 0 0 5px rgb(0 0 0 / 14%);
   border-radius: 12px;
 
   &__title {
@@ -36,7 +36,7 @@ body {
   &:focus,
   &:hover,
   &:active {
-    box-shadow: 0 0 12px rgba(0, 0, 0, 14%);
+    box-shadow: 0 0 12px rgb(0 0 0 / 14%);
   }
 }
 
