@@ -28,6 +28,8 @@ https://www.figma.com/file/IjDLfdmtSqKHM8thrULqOx/Chat_external_link-(Copy)?node
 
 ### Добавлено
 
+Роутинг страниц, API чатов, дополнен функционал
+
 Typescript ESLint, Stylelint
 
 Валидация форм и отправка данные в консоль
