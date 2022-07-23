@@ -1,0 +1,433 @@
+.chat {
+  display: flex;
+  position: relative;
+  width: 90%;
+  height: 100%;
+  max-width: 1280px;
+  margin: auto;
+  background-color: $lightGrey;
+  overflow: hidden;
+
+  &-list {
+    width: 25%;
+    position: relative;
+    padding: 0 10px;
+    padding-top: 20px;
+
+    &__link {
+      position: relative;
+      display: inline-block;
+      left: 75%;
+      margin-bottom: 15px;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 12px;
+      color: $primaryTurq;
+      text-decoration: none;
+
+      &:focus,
+      &:hover,
+      &:active {
+        color: $secondaryTurq;
+        outline: none;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -10px;
+        top: 0;
+        background: url("../../static/image/profile-arrow.svg") no-repeat;
+        width: 6px;
+        height: 10px;
+      }
+    }
+
+    &__search {
+      width: 100% !important;
+      height: 35px !important;
+      border-radius: 5px !important;
+      margin-bottom: 25px !important;
+      background-color: $darkGrey !important;
+      border: none !important;
+      padding: 10px 20px !important;
+
+      @include primary-font;
+
+      font-size: 12px !important;
+      line-height: 12px !important;
+      color: $primaryBlue !important;
+
+      &::placeholder {
+        @include primary-font;
+
+        font-size: 12px !important;
+        line-height: 12px !important;
+        color: $primaryTurq !important;
+        position: relative !important;
+        left: 40% !important;
+        background: url("../../static/image/search.svg") no-repeat !important;
+        background-position-x: 20% !important;
+        background-position-y: 50% !important;
+        opacity: 1 !important;
+      }
+
+      &:focus,
+      &:hover,
+      &:active {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  &-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    padding: 0 1.5%;
+    background-color: $whiteBg;
+
+    &__default {
+      color: $primaryYellow;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    &__header {
+      z-index: 15;
+      background-color: $whiteBg;
+      border-bottom: 1px solid $darkGrey;
+      position: absolute;
+      top: 0;
+      right: 2%;
+      left: 2%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+
+      &_wrap {
+        display: flex;
+        align-items: center;
+      }
+
+      &__avatar {
+        margin-right: 10px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: $darkGrey;
+      }
+
+      &__name {
+        @include primary-font;
+
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 13px;
+        color: $primaryBlue;
+        margin-left: 5px;
+      }
+
+      &__menu {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 15px !important;
+
+        &_dot {
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: $primaryBlue;
+        }
+      }
+    }
+
+    &__ribbon {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      height: 100vh;
+      padding: 70px 0 50px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        opacity: 1;
+      }
+
+      &__date {
+        align-self: center;
+        margin-bottom: 30px;
+        text-align: center;
+
+        @include primary-font;
+
+        font-size: 12px;
+        line-height: 12px;
+        color: $primaryYellow;
+      }
+
+      &__desk {
+        position: relative;
+        padding: 11px;
+        padding-bottom: 25px;
+
+        @include primary-font;
+
+        font-size: 12px;
+        line-height: 15px;
+        color: $primaryBlue;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        width: max-content;
+        max-width: 48%;
+        min-width: 22%;
+        align-self: flex-start;
+        background-color: $darkGrey;
+
+        &__author {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+
+          &_out {
+            align-items: end;
+          }
+        }
+
+        &__time {
+          position: absolute;
+          left: 11;
+          bottom: 11;
+          color: $primaryYellow;
+
+          @include primary-font;
+
+          font-size: 9px;
+          line-height: 9px;
+
+          &_out {
+            right: 11;
+            left: inherit;
+            color: $primaryTurq;
+
+            &::before {
+              content: "";
+              background: url("../../static/image/messege-icon.svg");
+              width: 10px;
+              height: 4px;
+              position: absolute;
+              left: -12px;
+              bottom: 25%;
+            }
+          }
+        }
+
+        &__avatar {
+          margin-bottom: 2px;
+        }
+
+        &__name {
+          color: $primaryYellow;
+          margin-bottom: 15px;
+
+          &_out {
+            color: $primaryTurq;
+          }
+        }
+
+        &_out {
+          align-self: flex-end;
+          background-color: $primaryYellow;
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 48px 1fr 25px;
+  grid-template-rows: repeat(3, 1fr);
+  height: 70px;
+  width: 110%;
+  margin-left: -5%;
+  padding: 5%;
+  border-top: 1px solid $darkGrey;
+  border-bottom: 1px solid $darkGrey;
+  background-color: inherit;
+  overflow: hidden;
+
+  &__add {
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: inherit !important;
+    }
+  }
+
+  &__avatar {
+    grid-row: 1/3;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background-color: $darkGrey;
+    margin-bottom: 0;
+  }
+
+  &__name {
+    grid-column: 2/3;
+    padding-left: 10px;
+
+    @include primary-font;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 13px;
+    color: $primaryBlue;
+  }
+
+  &__text {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding-left: 10px;
+
+    @include primary-font;
+
+    font-size: 12px;
+    line-height: 15px;
+    color: $primaryTurq;
+  }
+
+  &__time {
+    grid-column: 3/3;
+
+    @include primary-font;
+
+    font-size: 9px;
+    line-height: 13px;
+    color: $secondaryTurq;
+  }
+
+  &__counter {
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    @include primary-font;
+
+    font-size: 11px;
+    line-height: 12px;
+    background-color: $primaryYellow;
+    color: $whiteBg !important;
+
+    &__add {
+      grid-column: 3/3 !important;
+      grid-row: 1/3 !important;
+      width: 35px !important;
+      height: 35px !important;
+      left: -10px !important;
+
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: #6e6402;
+      }
+    }
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: #e4edfd;
+  }
+}
+
+.menu {
+  &__open {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    display: none;
+
+    &__item {
+      border: 1px solid $primaryBlue;
+
+      @include primary-font;
+
+      font-size: 12px;
+      padding: 5px;
+      margin-bottom: 1px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      color: $primaryBlue;
+      background-color: $whiteBg;
+      cursor: pointer;
+    }
+
+    &__counter {
+      width: 24px;
+      height: 24px;
+      margin-right: 3px;
+
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: #6e6402;
+      }
+    }
+
+    &__opened {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .chat {
+    &-list {
+      width: 40%;
+    }
+
+    &-text {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chat {
+    &-list {
+      width: 100%;
+    }
+
+    &-text {
+      display: none;
+    }
+  }
+
+  .contact {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .contact {
+    height: 70px;
+  }
+}

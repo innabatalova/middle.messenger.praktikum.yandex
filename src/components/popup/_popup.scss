@@ -1,0 +1,90 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_variables.scss";
+
+.account {
+  &__button {
+    align-self: center;
+  }
+
+  &__avatar {
+    &__download {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 15;
+      background-color: rgb(141 141 141 / 40%);
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 260px;
+      padding: 30px 40px;
+      background-color: $whiteBg;
+      border-radius: 12px;
+    }
+
+    &__title {
+      align-self: center;
+
+      @include primary-font;
+
+      font-size: 15px;
+      line-height: 20px;
+      color: $primaryBlue;
+    }
+
+    &__input {
+      align-self: center;
+      text-align: center;
+      width: 80%;
+      border-bottom: none;
+      margin-bottom: none;
+
+      @include primary-font;
+
+      font-size: 12px;
+      line-height: 16px;
+      color: $primaryTurq;
+      text-decoration: underline;
+    }
+  }
+}
+
+.change {
+  &__form {
+    width: 40%;
+    height: max-content;
+  }
+
+  &__field {
+    &__input {
+      max-width: 100%;
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      height: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgb(0 0 0 / 14%) !important;
+      font-size: 13px;
+      line-height: 13px;
+      color: $secondaryYellow;
+      border: 0 0 12px rgb(0 0 0 / 14%);
+      outline: none;
+
+      &:focus,
+      &:hover,
+      &:active {
+        box-shadow: 0 0 24px rgb(0 0 0 / 14%) !important;
+      }
+    }
+  }
+}
