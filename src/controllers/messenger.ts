@@ -6,6 +6,8 @@ import user from "./user";
 import store from "../utils/Store";
 import Socket from "../utils/Soket";
 
+let socket: Socket;
+
 class MessengerController {
   public pageClick(event: Event): void {
     if ((event.target as HTMLElement).dataset.value === "messageForm") {
@@ -13,8 +15,6 @@ class MessengerController {
 
       const id = store.getState().currentChats.id;
       const sockets = store.getState().socket;
-
-      let socket: Socket;
 
       Object.entries(sockets).forEach(([key, value]) => {
         if (key === id) socket = value as Socket;
@@ -52,7 +52,6 @@ class MessengerController {
         ) as HTMLElement
       ).dataset.avatar;
 
-      let socket: Socket;
       const sockets = store.getState().socket;
 
       Object.entries(sockets).forEach(([key, value]) => {
@@ -65,6 +64,7 @@ class MessengerController {
       });
 
       store.setState("currentChats", { id, title, avatar });
+      store.setState("chats", { id, title, avatar });
 
       console.log(store.getState());
     }
@@ -280,8 +280,6 @@ class MessengerController {
       // User
       let first_name: string;
       let second_name: string;
-      let display_name: string;
-      let avatar: string;
       const userId: string = message.user_id;
 
       // Date
@@ -295,7 +293,7 @@ class MessengerController {
       // Get user
       user
         .getUserById(userId)
-        .then((xhr: XMLHttpRequest) => {
+        .then((xhr: any) => {
           const {
             avatar,
             display_name = xhr.response.display_name
@@ -341,7 +339,7 @@ class MessengerController {
     // Get user
     user
       .getUserById(userId)
-      .then((xhr: XMLHttpRequest) => {
+      .then((xhr: any) => {
         const {
           avatar,
           display_name = xhr.response.display_name

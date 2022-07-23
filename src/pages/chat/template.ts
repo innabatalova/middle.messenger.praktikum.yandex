@@ -11,6 +11,22 @@ Handlebars.registerHelper("if_user", function (a: HTMLElement) {
   }
 });
 
+Handlebars.registerHelper("if_time", function (a: string) {
+  if (a) {
+    const i = Number(a.slice(12, 13)) + 3;
+    const newA = a.slice(11, 12) + i + a.slice(13, 16);
+    return `<div class="contact__time">${newA}</div>`;
+  }
+});
+
+Handlebars.registerHelper("if_count", function (a: number) {
+  if (a == 0) {
+    return;
+  } else {
+    return `<div class="contact__counter">${a}</div>`;
+  }
+});
+
 const template = Handlebars.compile(
   `<main>
   <div class="chat">
@@ -47,8 +63,9 @@ const template = Handlebars.compile(
         </div>
       <div class="contact__name">{{ title }}</div>
       <div class="contact__text">{{ last_message.content }}</div>
-      <div class="contact__time">?</div>
-      <div class="contact__counter">?</div>
+      {{#if_time last_message.time}}{{/if_time}}
+      {{#if_count unread_count}}{{/if_count}}
+      
       </div>
     {{/each}}
       
