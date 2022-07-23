@@ -14,7 +14,7 @@ class ChatsController {
   public getChats(data: Record<string, any> = {}) {
     this.chatsAPIInstance
       .getChats(data)
-      .then((xhr: XMLHttpRequest) => store.setState("chats", xhr.response))
+      .then((xhr: any) => store.setState("chats", xhr.response))
       .then(() => {
         store.getState().chats.forEach((chat: Record<string, any>) => {
           this.getChatToken(chat.id).then((token: any) => {
@@ -35,20 +35,20 @@ class ChatsController {
     this.chatsAPIInstance
       .createChat(data)
       .then(() => this.getChats())
-      .catch((err: Error) => alert(err.message));
+      .catch((err: Error) => console.log(err.message));
   }
 
   public getChatToken(id: string) {
     return this.chatsAPIInstance
       .getChatToken(id)
-      .then((xhr: XMLHttpRequest) => xhr.response.token)
-      .catch((err: Error) => alert(err.message));
+      .then((xhr: any) => xhr.response.token)
+      .catch((err: Error) => console.log(err.message));
   }
 
   public addUserToChat(data: Record<string, any>) {
     user
       .findUsersByLogin(data)
-      .then((xhr: XMLHttpRequest) => xhr.response[0])
+      .then((xhr: any) => xhr.response[0])
       .then((response: any) => {
         const data = {
           users: [response.id],
@@ -64,7 +64,7 @@ class ChatsController {
   public deleteUserFromChat(data: Record<string, any>) {
     user
       .findUsersByLogin(data)
-      .then((xhr: XMLHttpRequest) => xhr.response[0])
+      .then((xhr: any) => xhr.response[0])
       .then((response: any) => {
         const data = {
           users: [response.id],
@@ -76,7 +76,7 @@ class ChatsController {
             store.setState(`currentChats.users.${response.login}`, response.id)
           );
       })
-      .catch((err: Error) => alert(err.message));
+      .catch((err: Error) => console.log(err.message));
   }
 }
 

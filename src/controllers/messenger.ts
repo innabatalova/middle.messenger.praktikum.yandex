@@ -5,6 +5,7 @@ import chat from "./chat";
 import user from "./user";
 import store from "../utils/Store";
 import Socket from "../utils/Soket";
+import Validation from "../utils/Validation";
 
 let socket: Socket;
 
@@ -12,6 +13,16 @@ class MessengerController {
   public pageClick(event: Event): void {
     if ((event.target as HTMLElement).dataset.value === "messageForm") {
       event.preventDefault();
+
+      const newMessage = (
+        (event.target as HTMLFormElement)[1] as HTMLInputElement
+      ).value;
+      const verifyResult = Validation.verification("message", newMessage);
+      if (verifyResult.verify == false) {
+        alert(verifyResult.message);
+      }
+
+      console.log(verifyResult);
 
       const id = store.getState().currentChats.id;
       const sockets = store.getState().socket;
@@ -21,10 +32,15 @@ class MessengerController {
       });
 
       socket.send({
-        content: ((event.target as HTMLFormElement)[1] as HTMLInputElement)
-          .value,
+        content: newMessage,
         type: "message",
       });
+
+      const chats = store.getState().chats;
+      let chatIndex = chats
+        .map((el: any) => el.id)
+        .findIndex((i: any) => i == id);
+      store.setState(`chats.${chatIndex}.last_message.content`, newMessage);
 
       ((event.target as HTMLFormElement)[1] as HTMLInputElement).value = "";
     }
@@ -64,7 +80,6 @@ class MessengerController {
       });
 
       store.setState("currentChats", { id, title, avatar });
-      store.setState("chats", { id, title, avatar });
 
       console.log(store.getState());
     }
