@@ -78,11 +78,7 @@ const validationForm = (): Record<string, string> | void => {
         return data;
       }
     } else {
-<<<<<<< HEAD
       return data;
-=======
-      console.log("Данные формы", data);
->>>>>>> deploy
     }
   } else {
     return undefined;
