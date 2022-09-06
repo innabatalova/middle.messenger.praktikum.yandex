@@ -3,7 +3,7 @@ import renderDOM from "../utils/helpers/renderDOM";
 import PopupController from "./popup";
 import chat from "./chat";
 import user from "./user";
-import store from "../utils/Store";
+import store from "../core/Store";
 import Socket from "../utils/Soket";
 import Validation from "../utils/Validation";
 
@@ -21,8 +21,6 @@ class MessengerController {
       if (verifyResult.verify == false) {
         alert(verifyResult.message);
       }
-
-      console.log(verifyResult);
 
       const id = store.getState().currentChats.id;
       const sockets = store.getState().socket;
@@ -80,8 +78,6 @@ class MessengerController {
       });
 
       store.setState("currentChats", { id, title, avatar });
-
-      console.log(store.getState());
     }
   }
 

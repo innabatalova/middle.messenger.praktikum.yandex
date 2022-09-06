@@ -1,5 +1,5 @@
 import ChatsAPI from "../api/chatAPI";
-import store from "../utils/Store";
+import store from "../core/Store";
 import user from "./user";
 import messenger from "./messenger";
 import Socket from "../utils/Soket";
@@ -28,21 +28,21 @@ class ChatsController {
           });
         });
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public createChat(data: Record<string, any>) {
     this.chatsAPIInstance
       .createChat(data)
       .then(() => this.getChats())
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public getChatToken(id: string) {
     return this.chatsAPIInstance
       .getChatToken(id)
       .then((xhr: any) => xhr.response.token)
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public addUserToChat(data: Record<string, any>) {
@@ -58,7 +58,7 @@ class ChatsController {
           store.setState(`currentChats.user`, response.first_name);
         });
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public deleteUserFromChat(data: Record<string, any>) {
@@ -76,7 +76,7 @@ class ChatsController {
             store.setState(`currentChats.users.${response.login}`, response.id)
           );
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 }
 

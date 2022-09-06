@@ -1,5 +1,5 @@
 import Validation from "./Validation";
-import router from "./Router";
+import router from "../core/Router";
 import auth from "../controllers/auth";
 
 const goToRegister = (event: Event): void => {

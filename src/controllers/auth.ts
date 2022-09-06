@@ -1,6 +1,6 @@
 import AuthAPI from "../api/authAPI";
-import router from "../utils/Router";
-import store from "../utils/Store";
+import router from "../core/Router";
+import store from "../core/Store";
 import chats from "../controllers/chat";
 
 class AuthController {
@@ -18,7 +18,7 @@ class AuthController {
       .then(() => {
         router.go("/messenger");
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public signIn(data: Record<string, any>) {
@@ -30,7 +30,7 @@ class AuthController {
 
         router.go("/messenger");
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public getUserInfo() {
@@ -43,7 +43,7 @@ class AuthController {
           store.setState("user", xhr.response);
         }
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 
   public logout() {
@@ -52,7 +52,7 @@ class AuthController {
       .then(() => {
         router.go("/");
       })
-      .catch((err: Error) => console.log(err.message));
+      .catch((err: Error) => alert(err.message));
   }
 }
 

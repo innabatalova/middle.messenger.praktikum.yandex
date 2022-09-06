@@ -1,4 +1,4 @@
-import Block from "../utils/Block";
+import Block from "../core/Block";
 
 import Input from "../components/input/input";
 import Button from "../components/button/button";

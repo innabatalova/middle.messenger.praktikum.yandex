@@ -1,4 +1,4 @@
-import Block from "../../utils/Block";
+import Block from "../../core/Block";
 import { goToLogin, inputFocus, inputBlur, signUp } from "../../utils/events";
 
 import Input from "../../components/input/input";

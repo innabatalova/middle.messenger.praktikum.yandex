@@ -1,6 +1,6 @@
 import "./sass/style.scss";
 
-import router from "./utils/Router";
+import router from "./core/Router";
 
 import Account from "./pages/account/account";
 import Auth from "./pages/auth/auth";
@@ -17,11 +17,3 @@ router
   .use("/500", Error500, { code: 500 })
   .use("/404", Error404, { code: 404 })
   .start();
-
-// var xhr = new XMLHttpRequest(); // new HttpRequest instance
-// var url = "https://ya-praktikum.tech/api/v2/auth/signup";
-// xhr.open("POST", url, true);
-// xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
-// xhr.responseType = "json";
-// xhr.send(JSON.stringify(data));
-//xhr.send(data);

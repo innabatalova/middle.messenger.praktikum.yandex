@@ -1,5 +1,5 @@
 import template from "./template";
-import Block from "../../utils/Block";
+import Block from "../../core/Block";
 import "./_popup.scss";
 
 class Popup extends Block {

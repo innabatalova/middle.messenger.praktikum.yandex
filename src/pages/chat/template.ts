@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import store from "../../utils/Store";
+import store from "../../core/Store";
 
 Handlebars.registerHelper("if_user", function (a: HTMLElement) {
   const i = store.getState().user.display_name;

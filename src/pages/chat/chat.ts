@@ -1,6 +1,6 @@
-import Block from "../../utils/Block";
-import router from "../../utils/Router";
-import store, { StoreEvents } from "../../utils/Store";
+import Block from "../../core/Block";
+import router from "../../core/Router";
+import store, { StoreEvents } from "../../core/Store";
 import { isEmpty } from "../../utils/helpers/isEmpty";
 
 import chat from "../../controllers/chat";

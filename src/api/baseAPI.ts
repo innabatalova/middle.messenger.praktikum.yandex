@@ -1,4 +1,14 @@
-import HTTPTransport from "../utils/HTTPTransport";
+import HTTPTransport from "../core/HTTPTransport";
+
+export type Options = {
+  method: string;
+  timeout?: number;
+  credentials?: boolean;
+  mode?: string;
+  headers?: Record<string, string>;
+  body?: Record<string, any>;
+  data?: Record<string, any>;
+};
 
 abstract class BaseAPI {
   http: typeof HTTPTransport;

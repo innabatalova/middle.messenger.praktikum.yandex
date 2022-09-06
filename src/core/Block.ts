@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import EventBus from "./EventBus";
+import EventBus from "../utils/EventBus";
 
 abstract class Block {
   private EVENTS: Record<string, string> = {
