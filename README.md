@@ -1,4 +1,4 @@
-Messenger (sprint 1) - данный проект является учебным проектом первого модуля курса "Middle Frontend". 33
+Messenger (sprint 1) - данный проект является учебным проектом первого модуля курса "Middle Frontend". 3355444
 
 ### Pull requests sprint 1
 
