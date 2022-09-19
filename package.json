@@ -6,7 +6,8 @@
     "dev": "parcel static/index.html -p 3000 --open",
     "build": "parcel build static/index.html",
     "start": "node ./server.js",
-    "lint": "npx eslint --fix"
+    "lint": "npx eslint --fix",
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,20 @@
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@babel/register": "^7.18.9",
     "@parcel/transformer-sass": "^2.6.0",
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^9.1.1",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
+    "chai": "^4.3.6",
     "eslint": "8.17.0",
     "eslint-config-airbnb": "19.0.4",
+    "mocha": "^10.0.0",
     "parcel": "2.2.1",
     "stylelint": "^14.9.1",
     "stylelint-config-rational-order": "0.1.2",
