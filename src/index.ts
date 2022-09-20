@@ -19,21 +19,31 @@
 //   .start();
 
 import Handlebars from "handlebars";
-
-const name = {name: "Авторизоваться"};
-
+import Block from "./core/Block";
 const template = Handlebars.compile(
-  `<button type="submit" class="main-btn main-btn_auth {{class}}">
-      {{name}}
-   </button>`
-);
+   `<button type="submit" class="main-btn main-btn_auth {{class}}">
+   <div> {{name}} </div>
+    </button>`
+ );
 
-let result = 
-   `<button type="submit" class="main-btn main-btn_auth ">
-      Авторизоваться
-   </button>`;
+class TestComponent extends Block {
+   constructor(props: Record<string, any> = {}) {
+     super("div", props);
+   }
+ 
+   render() {
+     return this.setTemplate(template, this.props);
+   }
+ }
+
+ const exComponent = new TestComponent({
+   name: 'testing block',
+ });
+
+ const content = exComponent.getElement();
+ const child = content.querySelector('div');
+ //child.textContent = "test";
 
 
-console.log(template(name));
-console.log(result);
+console.log(child?.textContent);
 

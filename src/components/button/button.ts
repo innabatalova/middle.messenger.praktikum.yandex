@@ -1,6 +1,6 @@
 import Block from "../../core/Block";
 
-import "./_button.scss";
+//import "./_button.scss";
 import template from "./template";
 
 class Button extends Block {
