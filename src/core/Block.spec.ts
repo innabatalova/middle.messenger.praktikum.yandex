@@ -1,7 +1,7 @@
 import Handlebars from "handlebars";
 import { expect } from "chai";
 import {JSDOM} from "jsdom";
-import Block from "../../core/Block";
+import Block from "./Block";
 
 const template = Handlebars.compile(
   `<div>

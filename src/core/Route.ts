@@ -2,7 +2,7 @@ import Block from "./Block";
 import renderDOM from "../utils/helpers/renderDOM";
 
 class Route {
-  private pathname: string;
+  public pathname: string;
   private blockClass: any;
   private block: Block;
   private props: Record<string, any>;

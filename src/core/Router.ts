@@ -1,13 +1,13 @@
 import Route from "./Route";
 
 class Router {
-  private currentRoute: Route | null;
+  public currentRoute: Route | null;
   public routes: Route[];
   public history: History;
 
   constructor() {
     this.routes = [];
-    this.history = window.history;
+    //this.history = window.history;
     this.currentRoute = null;
   }
 
@@ -31,7 +31,7 @@ class Router {
   }
 
   public go(pathname: string): void {
-    this.history.pushState({}, "", pathname);
+    this.history?.pushState({}, "", pathname);
     this.onRoute(pathname);
   }
 
