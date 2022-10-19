@@ -13,8 +13,8 @@ Handlebars.registerHelper("if_user", function (a: HTMLElement) {
 
 Handlebars.registerHelper("if_time", function (a: string) {
   if (a) {
-    const i = Number(a.slice(12, 13)) + 3;
-    const newA = a.slice(11, 12) + i + a.slice(13, 16);
+    const i = a.slice(11, 16);
+    const newA = (Number(i.slice(0,2)) + 3) + ":" + a.slice(14, 16);
     return `<div class="contact__time">${newA}</div>`;
   }
 });
