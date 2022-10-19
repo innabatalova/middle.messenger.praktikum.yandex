@@ -3,4 +3,5 @@
 /dist
 /.cache
 /.env
+/.github
 .css/style.css.map
