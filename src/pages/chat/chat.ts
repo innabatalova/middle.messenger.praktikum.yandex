@@ -13,6 +13,9 @@ import Link from "../../components/link/link";
 import "../../sass/style.scss";
 import template from "./template";
 
+import profileArrowBG from "../../../static/image/profile-arrow.svg";
+import searchBG from "../../../static/image/search.svg";
+
 class Chat extends Block {
   constructor(props: Record<string, any> = {}) {
     if (isEmpty(store.getState())) {
@@ -102,4 +105,4 @@ class Chat extends Block {
   }
 }
 
-export default Chat;
+export default Chat; profileArrowBG; searchBG;

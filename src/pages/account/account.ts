@@ -14,6 +14,9 @@ import settingsController from "../../controllers/setting";
 import "../../sass/style.scss";
 import template from "./template";
 
+import backArrowBG from "../../../static/image/back-arrow.svg";
+
+
 
 class Account extends Block {
   constructor(props: Record<string, any> = {}) {
@@ -82,4 +85,4 @@ class Account extends Block {
   }
 }
 
-export default Account;
+export default Account; backArrowBG;

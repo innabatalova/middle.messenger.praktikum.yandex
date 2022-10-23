@@ -39,7 +39,7 @@
         position: absolute;
         right: -10px;
         top: 0;
-        background: url("http://localhost:3000/img/profile-arrow.svg") no-repeat;
+        background: url('http://localhost:3000/img/profile-arrow.svg') no-repeat;
         width: 6px;
         height: 10px;
       }
@@ -68,7 +68,7 @@
         color: $primaryTurq !important;
         position: relative !important;
         left: 40% !important;
-        background: url("../../static/image/search.svg") no-repeat !important;
+        background: url("http://localhost:3000/img/search.svg") no-repeat !important;
         background-position-x: 20% !important;
         background-position-y: 50% !important;
         opacity: 1 !important;
