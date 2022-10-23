@@ -7,12 +7,11 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "lint": "npx eslint --fix",
-    "postinstall": "npx husky install",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run test && npx eslint --fix"
     }
   },
   "repository": {
