@@ -4,6 +4,7 @@ import Block from "./Block";
 
 import { JSDOM } from 'jsdom'
 
+
 const { window } = new JSDOM('<div id="app"></div>', { url: 'http://localhost' })
 const { document } = window;
 (global as any).window = window;

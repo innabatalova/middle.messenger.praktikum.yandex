@@ -7,7 +7,7 @@ class Router {
 
   constructor() {
     this.routes = [];
-    //this.history = window.history;
+    this.history = window.history || undefined;
     this.currentRoute = null;
   }
 
