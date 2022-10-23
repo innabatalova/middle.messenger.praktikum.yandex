@@ -16,6 +16,9 @@ import template from "./template";
 import profileArrowBG from "../../../static/image/profile-arrow.svg";
 import searchBG from "../../../static/image/search.svg";
 
+console.log("iueghvuuksbfhkfvnlrgku");
+
+
 class Chat extends Block {
   constructor(props: Record<string, any> = {}) {
     if (isEmpty(store.getState())) {
