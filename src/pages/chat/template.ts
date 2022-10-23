@@ -1,6 +1,7 @@
 import Handlebars from "handlebars";
 import store from "../../core/Store";
 
+
 Handlebars.registerHelper("if_user", function (a: HTMLElement) {
   const i = store.getState().user.display_name;
 
@@ -41,7 +42,7 @@ const template = Handlebars.compile(
             <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ user.avatar }}"
               alt="user avatar"/>
           {{else}}
-            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/img/avatar.svg"
               alt="user avatar"/>
           {{/if}}
       <div class="contact__name">Начните общение</div>
@@ -57,7 +58,7 @@ const template = Handlebars.compile(
             <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ avatar}}"
               alt="user avatar"/>
           {{else}}
-            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/img/avatar.svg"
               alt="user avatar"/>
           {{/if}}
         </div>
@@ -82,7 +83,7 @@ const template = Handlebars.compile(
             <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ currentChats.avatar }}"
               alt="user avatar"/>
           {{else}}
-            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/img/avatar.svg"
               alt="user avatar"/>
           {{/if}}
 
@@ -110,13 +111,14 @@ const template = Handlebars.compile(
             <img class="contact__avatar account__avatar__img" src="https://ya-praktikum.tech/api/v2/resources{{ avatar }}"
               alt="user avatar"/>
           {{else}}
-            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/avatar.cc23c0e3.svg?1657909389002"
+            <img class="contact__avatar account__avatar__img" src="http://localhost:3000/img/avatar.svg"
               alt="user avatar"/>
           {{/if}}
           </div>
           <div class="chat-text__ribbon__desk__name chat-text__ribbon__desk__name{{#if_user name}}{{/if_user}}">{{ name }}</div>
           </div>
-          {{ content }}
+          <div class="chat-text__ribbon__desk__content"> {{ content }} </div>
+          
           <div class="chat-text__ribbon__desk__time chat-text__ribbon__desk__time{{#if_user name}}{{/if_user}}">{{ time }}</div>
         </div>
 

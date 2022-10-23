@@ -1,8 +1,9 @@
 import Handlebars from "handlebars";
+import avatarDefoult from "../../../static/image/avatar.svg";
 
 Handlebars.registerHelper("if_eq", function (a: HTMLElement) {
   if (a == null) {
-    return `http://localhost:3000/avatar.cc23c0e3.svg?1657909389002`;
+    return avatarDefoult;
   } else {
     return `https://ya-praktikum.tech/api/v2/resources`;
   }

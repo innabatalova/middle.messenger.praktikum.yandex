@@ -14,6 +14,7 @@ import settingsController from "../../controllers/setting";
 import "../../sass/style.scss";
 import template from "./template";
 
+
 class Account extends Block {
   constructor(props: Record<string, any> = {}) {
     if (isEmpty(store.getState())) {
