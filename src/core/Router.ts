@@ -8,7 +8,7 @@ class Router {
   constructor() {
     //this.routes = [];
     this.history = window.history;
-    this.currentRoute = null;
+    //this.currentRoute = null;
   }
 
   public use(
