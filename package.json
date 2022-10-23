@@ -9,6 +9,11 @@
     "lint": "npx eslint --fix",
     "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/innabatalova/middle.messenger.praktikum.yandex"
@@ -45,6 +50,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "https-browserify": "^1.0.0",
+    "husky": "^8.0.1",
     "jsdom": "^20.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "mocha": "^10.0.0",

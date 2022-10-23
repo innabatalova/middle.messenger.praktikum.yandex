@@ -39,7 +39,7 @@
         position: absolute;
         right: -10px;
         top: 0;
-        background: url('http://localhost:3000/img/profile-arrow.svg') no-repeat;
+        background: url("http://localhost:3000/img/profile-arrow.svg") no-repeat;
         width: 6px;
         height: 10px;
       }
@@ -195,8 +195,6 @@
         align-self: flex-start;
         background-color: $darkGrey;
 
-        
-
         &__author {
           display: flex;
           flex-direction: column;
@@ -254,16 +252,11 @@
           background-color: $primaryYellow;
         }
 
-        &__content{
+        &__content {
           overflow-x: hidden;
           padding: 1px;
-          
         }
-
-        
       }
-
-      
     }
   }
 }

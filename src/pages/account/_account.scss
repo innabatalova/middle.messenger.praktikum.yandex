@@ -2,8 +2,6 @@ body {
   background-color: $whiteBg;
 }
 
-$avatarDefoult: "../../static/image/back-arrow.svg";
-
 .container {
   position: relative;
   max-width: 1110px;
@@ -98,7 +96,7 @@ $avatarDefoult: "../../static/image/back-arrow.svg";
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: url('http://localhost:3000/img/back-arrow.svg') no-repeat;
+    background: url("http://localhost:3000/img/back-arrow.svg") no-repeat;
     background-color: $primaryYellow;
     background-position: 50%;
 
