@@ -23,7 +23,7 @@
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.2",
-    "@babel/cli": "7.12.1",
+    "@babel/cli": "^7.19.3",
     "@babel/core": "7.19.3",
     "@babel/preset-env": "7.19.4",
     "@babel/preset-typescript": "7.12.1",
@@ -35,7 +35,7 @@
     "@types/sinon": "10.0.13",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
-    "@webpack-cli/generators": "0.1.9",
+    "@webpack-cli/generators": "^2.5.0",
     "assert": "2.0.0",
     "babel-loader": "8.2.5",
     "browserify-zlib": "0.2.0",
@@ -80,7 +80,7 @@
   },
   "dependencies": {
     "@anikin/parcel-transformer-handlebars-precompile": "1.0.1",
-    "csscomb": "3.1.8",
+    "csscomb": "^4.3.0",
     "dotenv": "16.0.1",
     "express": "4.18.1",
     "handlebars": "4.7.7",
