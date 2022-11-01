@@ -7,7 +7,7 @@ Messenger - данный проект является учебным проек
 Sprint 1 - https://github.com/innabatalova/middle.messenger.praktikum.yandex/pull/1
 Sprint 2 - https://github.com/innabatalova/middle.messenger.praktikum.yandex/pull/2
 Sprint 3 - https://github.com/innabatalova/middle.messenger.praktikum.yandex/pull/3
-Sprint 4 - 
+Sprint 4 - https://github.com/innabatalova/middle.messenger.praktikum.yandex/pull/4
 
 ### Описание
 
