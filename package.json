@@ -7,7 +7,7 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "lint": "npx eslint --fix",
-    "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
+    "test": "mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
   },
   "husky": {
     "hooks": {
