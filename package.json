@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "**/*": [
+    "*.scss": [
       "npm run stylelint"
     ]
   },
