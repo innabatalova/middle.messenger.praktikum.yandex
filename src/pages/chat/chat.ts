@@ -1,16 +1,16 @@
-import Block from "../../core/Block";
-import router from "../../core/Router";
-import store, { StoreEvents } from "../../core/Store";
-import { isEmpty } from "../../utils/helpers/isEmpty";
+import Block from "@core/Block";
+import router from "@core/Router";
+import store, { StoreEvents } from "@core/Store";
+import { isEmpty } from "@utils/helpers/isEmpty";
 
-import chat from "../../controllers/chat";
-import auth from "../../controllers/auth";
-import messenger from "../../controllers/messenger";
+import chat from "@controllers/chat";
+import auth from "@controllers/auth";
+import messenger from "@controllers/messenger";
 
-import Input from "../../components/input/input";
-import Link from "../../components/link/link";
+import Input from "@components/input/input";
+import Link from "@components/link/link";
 
-import "../../sass/style.scss";
+import "@sass/style.scss";
 import template from "./template";
 
 import profileArrowBG from "../../../static/image/profile-arrow.svg";

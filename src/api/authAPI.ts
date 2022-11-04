@@ -1,5 +1,5 @@
-import BaseAPI from "./baseAPI";
-import { Options } from "./baseAPI";
+import BaseAPI from "@api/baseAPI";
+import { Options } from "@api/baseAPI";
 
 class AuthAPI extends BaseAPI {
   private signUpUrl: string;

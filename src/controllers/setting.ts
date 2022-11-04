@@ -1,4 +1,4 @@
-import renderDOM from "../utils/helpers/renderDOM";
+import renderDOM from "@utils/helpers/renderDOM";
 
 import user from "./user";
 import PopupController from "./popup";

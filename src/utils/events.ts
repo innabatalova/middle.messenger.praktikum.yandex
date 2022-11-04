@@ -1,6 +1,6 @@
 import Validation from "./Validation";
-import router from "../core/Router";
-import auth from "../controllers/auth";
+import router from "@core/Router";
+import auth from "@controllers/auth";
 
 const goToRegister = (event: Event): void => {
   if ((event.target as HTMLElement).className === "auth-form__link ") {
