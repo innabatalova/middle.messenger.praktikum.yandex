@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "*.(css|scss)": [
+    "**/*.(css|scss)": [
       "stylelint --fix"
     ]
   },
