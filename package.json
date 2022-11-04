@@ -8,7 +8,7 @@
     "start": "webpack-dev-server",
     "lint": "npx eslint --fix",
     "test": "mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts",
-    "stylelint": "npx stylelint '**/*{.css,.scss}' --fix"
+    "stylelint": "defwfwfgrfix"
   },
   "husky": {
     "hooks": {
@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "_*.scss": [
+    "*.scss": [
       "npm run stylelint"
     ],
     "*.spec.ts": [
