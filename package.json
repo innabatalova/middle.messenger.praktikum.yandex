@@ -16,11 +16,8 @@
     }
   },
   "lint-staged": {
-    "**/*.spec.ts": [
-      "mocha --require ts-node/register --require ./mocks.js"
-    ],
     "**/*.scss": [
-      "npm run lint && npm run stylelint"
+      "npm run stylelint"
     ]
   },
   "repository": {
