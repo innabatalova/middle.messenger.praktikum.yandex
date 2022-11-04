@@ -6,50 +6,48 @@
   &__avatar {
     &__download {
       position: fixed;
+      z-index: 15;
       top: 0;
+      right: 0;
       bottom: 0;
       left: 0;
-      right: 0;
-      z-index: 15;
       background-color: rgb(141 141 141 / 40%);
     }
 
     &__form {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       position: fixed;
-      left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      left: 50%;
+      display: flex;
       width: 340px;
       height: 260px;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 30px 40px;
-      background-color: $whiteBg;
       border-radius: 12px;
+      background-color: $whiteBg;
+      transform: translate(-50%, -50%);
     }
 
     &__title {
       align-self: center;
-
-      @include primary-font;
-
+      color: $primaryBlue;
       font-size: 15px;
       line-height: 20px;
-      color: $primaryBlue;
+
+      @include primary-font;
     }
 
     &__input {
-      align-self: center;
-      text-align: center;
       width: 80%;
-
-      @include primary-font;
-
+      align-self: center;
+      color: $primaryTurq;
       font-size: 12px;
       line-height: 16px;
-      color: $primaryTurq;
+      text-align: center;
       text-decoration: underline;
+
+      @include primary-font;
     }
   }
 }
@@ -57,15 +55,14 @@
 .change {
   &__field {
     &__input {
+      border: none;
+      color: $secondaryYellow;
+      font-size: 13px;
+      line-height: 13px;
+      outline: none;
       text-align: right;
 
       @include primary-font;
-
-      font-size: 13px;
-      line-height: 13px;
-      color: $secondaryYellow;
-      border: none;
-      outline: none;
     }
   }
 }

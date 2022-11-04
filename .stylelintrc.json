@@ -1,22 +1,10 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss", "stylelint-config-idiomatic-order"],
   "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
     "color-hex-case": "lower",
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true
-  },
-  "ignoreFiles": [
-    "/dist/*",
-    "/node_modules",
-    ".parcel-cache",
-    ".cache",
-    ".gitignore",
-    ".env",
-    ".github",
-    "src/sass/style.scss",
-    "src/sass/_normalize.scss",
-    "/src/sass/_mixins.scss",
-    "src/sass/_variables.scss"
-  ]
+    
+  }
 }

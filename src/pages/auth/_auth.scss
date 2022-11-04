@@ -8,29 +8,29 @@ body {
 
 .auth-form {
   position: fixed;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 340px;
   min-width: 340px;
   height: 450px;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 30px;
   padding-top: 50px;
+  border-radius: 12px;
   background: $whiteBg;
   box-shadow: 0 0 5px rgb(0 0 0 / 14%);
-  border-radius: 12px;
+  transform: translate(-50%, -50%);
 
   &__title {
     @include primary-font;
 
+    margin-bottom: 40px;
+    color: $primaryBlue;
     font-size: 20px;
     line-height: 20px;
     text-align: center;
-    color: $primaryBlue;
-    margin-bottom: 40px;
   }
 
   &:focus,
@@ -54,18 +54,18 @@ body {
 @media screen and (max-width: 992px) {
   .auth-form {
     position: static;
+    max-width: 340px;
     margin: auto;
     margin-top: 10%;
     transform: none;
-    max-width: 340px;
   }
 }
 
 @media screen and (max-width: 576px) {
   .auth-form {
     width: 90%;
-    max-width: auto;
     min-width: auto;
+    max-width: auto;
     margin: none;
   }
 }

@@ -1,31 +1,30 @@
 .chat {
-  display: flex;
   position: relative;
+  display: flex;
+  overflow: hidden;
   width: 90%;
-  height: 100%;
   max-width: 1280px;
+  height: 100%;
   margin: auto;
   background-color: $lightGrey;
-  overflow: hidden;
 
   &-list {
-    width: 25%;
     position: relative;
+    width: 25%;
     padding: 0 10px;
     padding-top: 20px;
 
     &__link {
       position: relative;
-      display: inline-block;
       left: 75%;
+      display: inline-block;
       margin-bottom: 15px;
-
-      @include primary-font;
-
+      color: $primaryTurq;
       font-size: 12px;
       line-height: 12px;
-      color: $primaryTurq;
       text-decoration: none;
+
+      @include primary-font;
 
       &:focus,
       &:hover,
@@ -35,50 +34,13 @@
       }
 
       &::after {
-        content: "";
         position: absolute;
-        right: -10px;
         top: 0;
-        background: url("http://localhost:3000/img/profile-arrow.svg") no-repeat;
+        right: -10px;
         width: 6px;
         height: 10px;
-      }
-    }
-
-    &__search {
-      width: 100% !important;
-      height: 35px !important;
-      border-radius: 5px !important;
-      margin-bottom: 25px !important;
-      background-color: $darkGrey !important;
-      border: none !important;
-      padding: 10px 20px !important;
-
-      @include primary-font;
-
-      font-size: 12px !important;
-      line-height: 12px !important;
-      color: $primaryBlue !important;
-
-      &::placeholder {
-        @include primary-font;
-
-        font-size: 12px !important;
-        line-height: 12px !important;
-        color: $primaryTurq !important;
-        position: relative !important;
-        left: 40% !important;
-        background: url("http://localhost:3000/img/search.svg") no-repeat !important;
-        background-position-x: 20% !important;
-        background-position-y: 50% !important;
-        opacity: 1 !important;
-      }
-
-      &:focus,
-      &:hover,
-      &:active {
-        outline: none !important;
-        box-shadow: none !important;
+        background: url("http://localhost:3000/img/profile-arrow.svg") no-repeat;
+        content: "";
       }
     }
   }
@@ -86,10 +48,10 @@
   &-text {
     position: relative;
     display: flex;
+    width: 75%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 75%;
     padding: 0 1.5%;
     background-color: $whiteBg;
 
@@ -103,10 +65,8 @@
     }
 
     &__header {
-      z-index: 15;
-      background-color: $whiteBg;
-      border-bottom: 1px solid $darkGrey;
       position: absolute;
+      z-index: 15;
       top: 0;
       right: 2%;
       left: 2%;
@@ -114,6 +74,8 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
+      border-bottom: 1px solid $darkGrey;
+      background-color: $whiteBg;
 
       &_wrap {
         display: flex;
@@ -121,28 +83,28 @@
       }
 
       &__avatar {
-        margin-right: 10px;
         width: 35px;
         height: 35px;
         border-radius: 50%;
+        margin-right: 10px;
         background-color: $darkGrey;
       }
 
       &__name {
         @include primary-font;
 
-        font-weight: 600;
-        font-size: 13px;
-        line-height: 13px;
-        color: $primaryBlue;
         margin-left: 5px;
+        color: $primaryBlue;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 13px;
       }
 
       &__menu {
         display: flex !important;
+        height: 15px !important;
         flex-direction: column !important;
         justify-content: space-between !important;
-        height: 15px !important;
 
         &_dot {
           width: 3px;
@@ -155,9 +117,9 @@
 
     &__ribbon {
       display: flex;
-      flex-direction: column-reverse;
       width: 100%;
       height: 100vh;
+      flex-direction: column-reverse;
       padding: 70px 0 50px;
       overflow-y: scroll;
 
@@ -168,32 +130,30 @@
       &__date {
         align-self: center;
         margin-bottom: 30px;
+        color: $primaryYellow;
+        font-size: 12px;
+        line-height: 12px;
         text-align: center;
 
         @include primary-font;
-
-        font-size: 12px;
-        line-height: 12px;
-        color: $primaryYellow;
       }
 
       &__desk {
         position: relative;
+        width: max-content;
+        min-width: 22%;
+        max-width: 48%;
+        align-self: flex-start;
         padding: 11px;
         padding-bottom: 25px;
-
-        @include primary-font;
-
-        font-size: 12px;
-        line-height: 15px;
-        color: $primaryBlue;
         border-radius: 10px;
         margin-bottom: 15px;
-        width: max-content;
-        max-width: 48%;
-        min-width: 22%;
-        align-self: flex-start;
         background-color: $darkGrey;
+        color: $primaryBlue;
+        font-size: 12px;
+        line-height: 15px;
+
+        @include primary-font;
 
         &__author {
           display: flex;
@@ -207,15 +167,14 @@
 
         &__time {
           position: absolute;
-          left: 11;
           bottom: 11;
+          left: 11;
           margin-top: 5px;
           color: $primaryYellow;
-
-          @include primary-font;
-
           font-size: 9px;
           line-height: 9px;
+
+          @include primary-font;
 
           &_out {
             right: 11;
@@ -223,13 +182,13 @@
             color: $primaryTurq;
 
             &::before {
-              content: "";
-              background: url("../../static/image/messege-icon.svg");
+              position: absolute;
+              bottom: 25%;
+              left: -12px;
               width: 10px;
               height: 4px;
-              position: absolute;
-              left: -12px;
-              bottom: 25%;
+              background: url("../../static/image/messege-icon.svg");
+              content: "";
             }
           }
         }
@@ -239,8 +198,8 @@
         }
 
         &__name {
-          color: $primaryYellow;
           margin-bottom: 15px;
+          color: $primaryYellow;
 
           &_out {
             color: $primaryTurq;
@@ -253,26 +212,62 @@
         }
 
         &__content {
-          overflow-x: hidden;
           padding: 1px;
+          overflow-x: hidden;
         }
       }
+    }
+  }
+
+  input {
+    width: 100%;
+    height: 35px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    background-color: $darkGrey;
+    color: $primaryBlue;
+    font-size: 12px;
+    line-height: 12px;
+
+    @include primary-font;
+
+    &::placeholder {
+      @include primary-font;
+
+      position: relative;
+      left: 40%;
+      background: url("http://localhost:3000/img/search.svg") no-repeat;
+      background-position-x: 20%;
+      background-position-y: 50%;
+      color: $primaryTurq;
+      font-size: 12px;
+      line-height: 12px;
+      opacity: 1;
+    }
+
+    &:focus,
+    &:hover,
+    &:active {
+      box-shadow: none;
+      outline: none;
     }
   }
 }
 
 .contact {
   display: grid;
-  grid-template-columns: 48px 1fr 25px;
-  grid-template-rows: repeat(3, 1fr);
-  height: 70px;
+  overflow: hidden;
   width: 110%;
-  margin-left: -5%;
+  height: 70px;
   padding: 5%;
   border-top: 1px solid $darkGrey;
   border-bottom: 1px solid $darkGrey;
+  margin-left: -5%;
   background-color: inherit;
-  overflow: hidden;
+  grid-template-columns: 48px 1fr 25px;
+  grid-template-rows: repeat(3, 1fr);
 
   &__add {
     &:focus,
@@ -283,70 +278,66 @@
   }
 
   &__avatar {
-    grid-row: 1/3;
     width: 47px;
     height: 47px;
     border-radius: 50%;
-    background-color: $darkGrey;
     margin-bottom: 0;
+    background-color: $darkGrey;
+    grid-row: 1/3;
   }
 
   &__name {
-    grid-column: 2/3;
     padding-left: 10px;
+    color: $primaryBlue;
+    font-size: 13px;
+    font-weight: 600;
+    grid-column: 2/3;
+    line-height: 13px;
 
     @include primary-font;
-
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 13px;
-    color: $primaryBlue;
   }
 
   &__text {
+    padding-left: 10px;
+    color: $primaryTurq;
+    font-size: 12px;
     grid-column: 2/3;
     grid-row: 2/3;
-    padding-left: 10px;
+    line-height: 15px;
 
     @include primary-font;
-
-    font-size: 12px;
-    line-height: 15px;
-    color: $primaryTurq;
   }
 
   &__time {
+    color: $secondaryTurq;
+    font-size: 9px;
     grid-column: 3/3;
+    line-height: 13px;
 
     @include primary-font;
-
-    font-size: 9px;
-    line-height: 13px;
-    color: $secondaryTurq;
   }
 
   &__counter {
     position: relative;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
     width: 24px;
     height: 24px;
+    align-items: center !important;
+    justify-content: center !important;
     border-radius: 50%;
+    background-color: $primaryYellow;
+    color: $whiteBg !important;
+    font-size: 11px;
+    line-height: 12px;
 
     @include primary-font;
 
-    font-size: 11px;
-    line-height: 12px;
-    background-color: $primaryYellow;
-    color: $whiteBg !important;
-
     &__add {
-      grid-column: 3/3 !important;
-      grid-row: 1/3 !important;
+      left: -10px !important;
       width: 35px !important;
       height: 35px !important;
-      left: -10px !important;
+      grid-column: 3/3 !important;
+      grid-row: 1/3 !important;
 
       &:focus,
       &:hover,
@@ -366,24 +357,23 @@
 .menu {
   &__open {
     position: absolute;
-    right: 5px;
     top: 20px;
+    right: 5px;
     display: none;
 
     &__item {
-      border: 1px solid $primaryBlue;
-
-      @include primary-font;
-
-      font-size: 12px;
-      padding: 5px;
-      margin-bottom: 1px;
-      border-radius: 12px;
       display: flex;
       align-items: center;
-      color: $primaryBlue;
+      padding: 5px;
+      border: 1px solid $primaryBlue;
+      border-radius: 12px;
+      margin-bottom: 1px;
       background-color: $whiteBg;
+      color: $primaryBlue;
       cursor: pointer;
+      font-size: 12px;
+
+      @include primary-font;
     }
 
     &__counter {

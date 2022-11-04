@@ -1,27 +1,26 @@
-@import "../../sass/_mixins.scss";
-@import "../../sass/_variables.scss";
+@import "../../sass/_mixins";
+@import "../../sass/_variables";
 
 .main-btn {
   width: 100%;
-  height: 40px;
   max-width: 280px;
-
-  @include primary-font;
-
-  font-size: 13px;
-  line-height: 13px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  margin: 0 auto 15px;
   background-color: $primaryYellow;
   color: $whiteBg;
-  border-radius: 8px;
-  border: none;
   cursor: pointer;
-  margin: 0 auto 15px;
+  font-size: 13px;
+  line-height: 13px;
+
+  @include primary-font;
 
   &:focus,
   &:hover,
   &:active {
-    background-color: $secondaryYellow;
     border: none;
+    background-color: $secondaryYellow;
     outline: none;
   }
 }

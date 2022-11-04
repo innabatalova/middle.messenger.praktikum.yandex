@@ -10,10 +10,10 @@ body {
 
 .account {
   display: flex;
-  flex-direction: column;
   max-width: 510px;
-  margin: auto;
+  flex-direction: column;
   padding-top: 35px;
+  margin: auto;
 
   &__avatar {
     position: relative;
@@ -32,26 +32,25 @@ body {
     &__name {
       @include primary-font;
 
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 16px;
       color: $primaryBlue;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 16px;
     }
 
     &__change {
       position: absolute !important;
-      left: 50% !important;
       top: 60% !important;
-      transform: translate(-50%, -50%) !important;
+      left: 50% !important;
       width: 65px !important;
-      text-align: center !important;
-
-      @include primary-font;
-
+      color: $primaryYellow !important;
       font-size: 13px !important;
       line-height: 14px !important;
-      color: $primaryYellow !important;
       opacity: 0 !important;
+      text-align: center !important;
+      transform: translate(-50%, -50%) !important;
+
+      @include primary-font;
 
       &:hover {
         opacity: 1 !important;
@@ -84,9 +83,9 @@ body {
 
 .back {
   position: absolute;
-  left: 0;
   top: 0;
   bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   padding: 0 18px;
@@ -120,7 +119,7 @@ body {
 
   .back {
     left: 0;
-    padding-left: 0;
     padding-right: 8px;
+    padding-left: 0;
   }
 }

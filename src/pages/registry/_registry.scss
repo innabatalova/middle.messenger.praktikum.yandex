@@ -1,9 +1,9 @@
 .registry-form {
   position: static;
-  transform: none;
+  height: max-content;
   margin: auto;
   margin-top: 25px;
-  height: max-content;
+  transform: none;
 
   &__title {
     margin-bottom: 15px;

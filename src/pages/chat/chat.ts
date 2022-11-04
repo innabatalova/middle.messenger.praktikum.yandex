@@ -36,7 +36,6 @@ class Chat extends Block {
     const inputSearch = new Input({
       name: "search",
       id: "search",
-      class: "chat-list__search",
       type: "text",
       placeholder: "Поиск",
     });

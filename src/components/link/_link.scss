@@ -1,18 +1,17 @@
-@import "../../sass/_mixins.scss";
-@import "../../sass/_variables.scss";
+@import "../../sass/_mixins";
+@import "../../sass/_variables";
 
 .auth-form {
   &__link {
-    cursor: pointer;
     display: inline-block;
-    text-align: center;
-
-    @include primary-font;
-
+    color: $primaryTurq;
+    cursor: pointer;
     font-size: 11px;
     line-height: 11px;
-    color: $primaryTurq;
+    text-align: center;
     text-decoration: none;
+
+    @include primary-font;
 
     &:focus,
     &:hover,
