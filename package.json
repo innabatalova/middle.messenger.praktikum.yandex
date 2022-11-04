@@ -6,9 +6,8 @@
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack",
     "start": "webpack-dev-server",
-    "lint": "npx eslint --fix",
-    "test": "mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts",
-    "stylelint": "npx stylelint '**/*{.css,.scss}' --fix"
+    "lint": "npx eslint --fix && npx stylelint '**/*{.css,.scss}' --fix",
+    "test": "mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts"
   },
   "husky": {
     "hooks": {
@@ -16,8 +15,8 @@
     }
   },
   "lint-staged": {
-    "*.(css|scss)": [
-      "stylelint --fix"
+    "*.scss": [
+      "npm run lint"
     ],
     "*.spec.ts": [
       "npm run test"
