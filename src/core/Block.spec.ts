@@ -58,7 +58,6 @@ describe("Testing component", () => {
     const child = content.querySelector('div');
 
     expect(child?.textContent).to.equal('testing block');
-
   });
 
 }); 
