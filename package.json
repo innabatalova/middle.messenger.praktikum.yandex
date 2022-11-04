@@ -10,15 +10,15 @@
     "test": "mocha --require ts-node/register --require ./mocks.js src/**/*.spec.ts",
     "stylelint": "stylelint '**/*{.css,.scss}' --fix"
   },
-  "lint-staged": {
-    "*.(css|scss)": [
-      "stylelint --fix"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run test && lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.(css|scss)": [
+      "stylelint --fix"
+    ]
   },
   "repository": {
     "type": "git",
