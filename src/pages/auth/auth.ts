@@ -53,6 +53,7 @@ class Auth extends Block {
     });
   }
 
+
   render() {
     return this.setTemplate(template, this.props);
   }

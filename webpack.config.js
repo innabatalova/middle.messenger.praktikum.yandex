@@ -24,7 +24,6 @@ module.exports = () => {
         config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
         return merge([
           config,
-          devServer(),
           modules(),
           plugins(),
         ]);

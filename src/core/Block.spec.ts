@@ -1,5 +1,6 @@
 import Handlebars from "handlebars";
 import { expect } from "chai";
+import sinon from "sinon";
 import { JSDOM } from "jsdom";
 import Block from "./Block";
 
@@ -60,4 +61,22 @@ describe("Testing component", () => {
     expect(child?.textContent).to.equal('testing block');
   });
 
-}); 
+  describe('CDU', function () {
+    it('Should be called on props update', function () {
+      class Component extends Block {
+        componentDidUpdate() {
+          return true;
+        }
+        render() {
+          return this.setTemplate(template, this.props);
+        }
+      }
+      const c = new Component();
+      const spy = sinon.spy(c, 'componentDidUpdate');
+
+      c.setProps({test: 1});
+
+      expect(spy.calledOnce).true;
+    });
+
+})});
