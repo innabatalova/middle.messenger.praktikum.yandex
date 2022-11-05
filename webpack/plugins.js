@@ -16,7 +16,7 @@ module.exports = function() {
             new MiniCssExtractPlugin({
               filename: "[name].[contenthash].scss",
             }),
-            [ "babel-plugin-webpack-alias", { "config": "./webpack.config.test.js" } ]
+          
           ],
     };
 };

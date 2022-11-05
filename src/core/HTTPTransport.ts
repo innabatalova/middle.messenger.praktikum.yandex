@@ -25,6 +25,7 @@ class HTTPTransport {
   };
 
   public post = (url: string, options: Options) => {
+
     return this.request(
       url,
       { ...options, method: METHODS.POST },
@@ -33,6 +34,7 @@ class HTTPTransport {
   };
 
   public put = (url: string, options: Options) => {
+  
     return this.request(
       url,
       { ...options, method: METHODS.PUT },
@@ -41,6 +43,7 @@ class HTTPTransport {
   };
 
   public delete = (url: string, options: Options) => {
+    
     return this.request(
       url,
       { ...options, method: METHODS.DELETE },
@@ -48,7 +51,7 @@ class HTTPTransport {
     );
   };
 
-  private queryStringify(data: Record<string, any>) {
+  public queryStringify(data: Record<string, any>) {
     if (typeof data !== "object") {
       throw new Error("Тело запроса должно быть объектом");
     }
@@ -62,7 +65,7 @@ class HTTPTransport {
     }, "?");
   }
 
-  private request = (url: string, options: Options, timeout = 5000) => {
+  public request = (url: string, options: Options, timeout = 5000) => {
     const { headers = {}, method, credentials, data, body } = options;
 
     return new Promise((resolve, reject) => {

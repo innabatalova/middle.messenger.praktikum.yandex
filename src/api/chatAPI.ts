@@ -1,5 +1,5 @@
-import BaseAPI from "@api/baseAPI";
-import { Options } from "@api/baseAPI";
+import BaseAPI from "./baseAPI";
+import { Options } from "./baseAPI";
 
 class ChatsAPI extends BaseAPI {
   private chatsUrl: string;
@@ -23,7 +23,7 @@ class ChatsAPI extends BaseAPI {
       },
       data: data,
     };
-
+    
     return this.http.get(this.chatsUrl, options);
   }
 
@@ -36,7 +36,6 @@ class ChatsAPI extends BaseAPI {
       },
       body: data,
     };
-
     return this.http.post(this.chatsUrl, options);
   }
 
