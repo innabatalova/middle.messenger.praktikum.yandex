@@ -1,5 +1,5 @@
-import BaseAPI from "@api/baseAPI";
-import { Options } from "@api/baseAPI";
+import BaseAPI from "./baseAPI";
+import { Options } from "./baseAPI";
 
 class UserAPI extends BaseAPI {
   private changeProfileUrl: string;

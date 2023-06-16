@@ -1,4 +1,4 @@
-import Block from "@core/Block";
+import Block from "../../core/Block";
 import {
   goToRegister,
   inputFocus,
@@ -6,11 +6,11 @@ import {
   signIn,
 } from "../../utils/events";
 
-import Input from "@components/input/input";
-import Button from "@components/button/button";
-import Link from "@components/link/link";
+import Input from "../../components/input/input";
+import Button from "../../components/button/button";
+import Link from "../../components/link/link";
 
-import "@sass/style.scss";
+import "../../sass/style.scss";
 import template from "./template";
 
 class Auth extends Block {

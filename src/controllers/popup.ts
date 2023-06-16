@@ -1,9 +1,9 @@
-import Block from "@core/Block";
+import Block from "../core/Block";
 
-import Input from "@components/input/input";
-import Button from "@components/button/button";
-import Link from "@components/link/link";
-import Popup from "@components/popup/popup";
+import Input from "../components/input/input";
+import Button from "../components/button/button";
+import Link from "../components/link/link";
+import Popup from "../components/popup/popup";
 
 class PopupController {
   private innerInputs: Record<string, any>[] = [];

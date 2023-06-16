@@ -1,8 +1,8 @@
-import ChatsAPI from "@api/chatAPI";
-import store from "@core/Store";
-import user from "@controllers/user";
-import messenger from "@controllers/messenger";
-import Socket from "@utils/Soket";
+import ChatsAPI from "../api/chatAPI";
+import store from "../core/Store";
+import user from "../controllers/user";
+import messenger from "../controllers/messenger";
+import Socket from "../utils/Soket";
 
 class ChatsController {
   private chatsAPIInstance: ChatsAPI;

@@ -1,17 +1,17 @@
-import Block from "@core/Block";
-import store, { StoreEvents } from "@core/Store";
-import router from "@core/Router";
-import { isEmpty } from "@utils/helpers/isEmpty";
+import Block from "../../core/Block";
+import store, { StoreEvents } from "../../core/Store";
+import router from "../../core/Router";
+import { isEmpty } from "../../utils/helpers/isEmpty";
 
-import auth from "@controllers/auth";
-import chats from "@controllers/chat";
+import auth from "../../controllers/auth";
+import chats from "../../controllers/chat";
 
-import Link from "@components/link/link";
+import Link from "../../components/link/link";
 
-import { settingClick } from "@utils/events";
-import settingsController from "@controllers/setting";
+import { settingClick } from "../../utils/events";
+import settingsController from "../../controllers/setting";
 
-import "@sass/style.scss";
+import "../../sass/style.scss";
 import template from "./template";
 
 import backArrowBG from "../../../static/image/back-arrow.svg";

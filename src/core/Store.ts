@@ -1,5 +1,5 @@
-import EventBus from "@utils/EventBus";
-import set from "@utils/helpers/set";
+import EventBus from "../utils/EventBus";
+import set from "../utils/helpers/set";
 
 export enum StoreEvents {
   Updated = "updated",

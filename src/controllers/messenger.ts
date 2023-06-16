@@ -1,11 +1,11 @@
-import renderDOM from "@utils/helpers/renderDOM";
+import renderDOM from "../utils/helpers/renderDOM";
 
-import PopupController from "@controllers/popup";
-import chat from "@controllers/chat";
-import user from "@controllers/user";
-import store from "@core/Store";
-import Socket from "@utils/Soket";
-import Validation from "@utils/Validation";
+import PopupController from "../controllers/popup";
+import chat from "../controllers/chat";
+import user from "../controllers/user";
+import store from "../core/Store";
+import Socket from "../utils/Soket";
+import Validation from "../utils/Validation";
 
 let socket: Socket;
 

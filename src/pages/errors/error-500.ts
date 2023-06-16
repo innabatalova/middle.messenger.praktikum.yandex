@@ -1,8 +1,8 @@
-import Block from "@core/Block";
+import Block from "../../core/Block";
 
-import Link from "@components/link/link";
+import Link from "../../components/link/link";
 
-import "@sass/style.scss";
+import "../../sass/style.scss";
 import template from "./template";
 
 class Error500 extends Block {

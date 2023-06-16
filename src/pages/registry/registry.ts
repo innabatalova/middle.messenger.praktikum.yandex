@@ -1,13 +1,13 @@
-import Block from "@core/Block";
-import { goToLogin, inputFocus, inputBlur, signUp } from "@utils/events";
+import Block from "../../core/Block";
+import { goToLogin, inputFocus, inputBlur, signUp } from "../../utils/events";
 
-import Input from "@components/input/input";
-import Button from "@components/button/button";
-import Link from "@components/link/link";
+import Input from "../../components/input/input";
+import Button from "../../components/button/button";
+import Link from "../../components/link/link";
 
 import avatar from "../../../static/image/avatar.svg";
 
-import "@sass/style.scss";
+import "../../sass/style.scss";
 import template from "./template";
 
 class Registry extends Block {

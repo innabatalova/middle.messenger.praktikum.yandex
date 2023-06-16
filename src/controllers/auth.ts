@@ -1,7 +1,7 @@
-import AuthAPI from "@api/authAPI";
-import router from "@core/Router";
-import store from "@core/Store";
-import chats from "@controllers/chat";
+import AuthAPI from "../api/authAPI";
+import router from "../core/Router";
+import store from "../core/Store";
+import chats from "../controllers/chat";
 
 class AuthController {
   private authAPIInstance: AuthAPI;

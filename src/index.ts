@@ -1,13 +1,13 @@
-import "@sass/style.scss";
+import "../src/sass/style.scss";
 
-import router from "@core/Router";
+import router from "../src/core/Router";
 
-import Account from "@pages/account/account";
-import Auth from "@pages/auth/auth";
-import Chat from "@pages/chat/chat";
-import Error404 from "@pages/errors/error-404";
-import Error500 from "@pages/errors/error-500";
-import Registry from "@pages/registry/registry";
+import Account from "../src/pages/account/account";
+import Auth from "../src/pages/auth/auth";
+import Chat from "../src/pages/chat/chat";
+import Error404 from "../src/pages/errors/error-404";
+import Error500 from "../src/pages/errors/error-500";
+import Registry from "../src/pages/registry/registry";
 
 router
   .use("/", Auth)

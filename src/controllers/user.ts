@@ -1,5 +1,5 @@
-import UserAPI from "@api/userAPI";
-import store from "@core/Store";
+import UserAPI from "../api/userAPI";
+import store from "../core/Store";
 
 class UserController {
   private usersAPIInstance: UserAPI;
