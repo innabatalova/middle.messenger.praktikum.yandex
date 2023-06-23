@@ -1,5 +1,6 @@
 
 Messenger - данный проект является учебным проектом первого модуля курса "Middle Frontend". Это приложения для обмена сообщениями. Данные пользователя хранятся в куки, поэтому для тестирования необходимо заходить из разных браузеров.
+Посмортреть сейчас https://dynamic-cendol-de43e1.netlify.app/
 
 
 ### Pull requests
@@ -45,16 +46,5 @@ https://www.figma.com/file/IjDLfdmtSqKHM8thrULqOx/Chat_external_link-(Copy)?node
 
 ### Проект на Netlify
 
-https://harmonious-cajeta-ec8291.netlify.app/
+https://dynamic-cendol-de43e1.netlify.app/
 
-### Проект на Heroku
-
-https://middlemess.herokuapp.com/
-
-## Страницы
-Login page: https://middlemess.herokuapp.com/
-Register page: https://middlemess.herokuapp.com/sign-up
-Chat page: https://middlemess.herokuapp.com/messenger
-Settings page: https://middlemess.herokuapp.com/settings
-404 page: https://middlemess.herokuapp.com/404
-500 page: https://middlemess.herokuapp.com/500 
